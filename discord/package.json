@@ -1,0 +1,23 @@
+{
+  "name": "scrubjay-discord-bot",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A bot for the California Birding Discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drew-beamer/ScrubJay.git"
+  },
+  "author": "Drew Beamer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drew-beamer/ScrubJay/issues"
+  },
+  "homepage": "https://github.com/drew-beamer/ScrubJay#readme",
+  "dependencies": {
+    "@discordjs/core": "^1.0.1"
+  }
+}
