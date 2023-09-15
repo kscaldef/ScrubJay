@@ -1,9 +1,19 @@
 import { SlashCommandBuilder } from 'discord.js';
 
-export const data = new SlashCommandBuilder()
+const data = new SlashCommandBuilder()
 	.setName('ping')
-	.setDescription('Replies with Pong!');
+	.setDescription('Replies with Pong & Latency!');
 
-export async function execute(interaction) {
-	await interaction.reply('Pong!');
+async function execute(interaction) {
+	const replyString = `:ping_pong: Pong! Latency: ${
+		Date.now() - interaction.createdTimestamp
+	}ms`;
+	await interaction.reply(replyString);
 }
+
+const ping = {
+	data: data,
+	execute: execute,
+};
+
+export default ping;
