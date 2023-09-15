@@ -69,13 +69,9 @@ function generateEmbeds(
 ) {
 	const observationsToSend = [];
 	for (const observation of newObservations) {
-		if (prevAlertData.has(`${observation.speciesCode}+${observation.subId}`)) {
-			console.log(
-				'Already sent:',
-				`${observation.speciesCode}+${observation.subId}`,
-			);
-		}
-		else if (!filter.has(observation.comName)) {
+		const filterContains = filter.has(observation.comName);
+		const prevAlertContains = prevAlertData.has(`${observation.speciesCode}+${observation.subId}`);
+		if (!prevAlertContains && !filterContains) {
 			const embed = generateEmbed(observation);
 			console.log('Successfully generated embed for', observation.comName);
 			observationsToSend.push(embed);
@@ -127,7 +123,7 @@ async function initializeCARBAJob(client) {
 		return job;
 	}
 	catch (error) {
-		console.log('Error initializing CARBA, shutting down.');
+		console.log('Error with CARBA, shutting down.');
 		console.error(error);
 		return;
 	}
