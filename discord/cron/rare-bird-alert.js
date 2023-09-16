@@ -1,11 +1,19 @@
+/**
+ * Work in progress
+ * 
+ * This file is responsible for running the cron job that sends the rare bird alert.
+ * Currently working to make it more modular and reusable.
+ */
+
+
 import { CronJob } from "cron";
-import filterData from "./caRareBirdAlertFilter.js";
+// import filterData from "./caRareBirdAlertFilter.js";
 import { fetchRareObservations, getObservationSet } from "../utils/ebird.js";
 import { EmbedBuilder } from "discord.js";
 import { alertOnAPIFailure } from "../monitoring/api.js";
 import { notifyOfCronJob } from "../monitoring/cron.js";
 
-const CHANNELS = ["1151958598264574002"];
+// const CHANNELS = ["1151958598264574002"];
 const MESSAGES = [
   ":pirate_flag: Ahoy birders! The past hour brings more rare birds, here's your latest RBA. :pirate_flag:",
   ":rotating_light: ATTENTION BIRDERS! The ScrubJay RBA is here. :rotating_light:",
@@ -15,7 +23,7 @@ const MESSAGES = [
   ":rocket: Buckle up, birders! The ScrubJay RBA is about to blast off!",
 ];
 
-function parseFilter() {
+function parseFilter(filterData) {
   const filteredSpecies = new Set();
   for (const species of filterData) {
     filteredSpecies.add(species.species);
@@ -78,8 +86,8 @@ function generateEmbeds(filter, prevAlertData, newObservations) {
   return observationsToSend;
 }
 
-async function sendEmbeds(client, observations) {
-  for (const channelId of CHANNELS) {
+async function sendEmbeds(client, observations, channels) {
+  for (const channelId of channels) {
     const channel = client.channels.cache.get(channelId);
     channel.send(generateGreeting());
     for (let i = 0; i < observations.length; i += 10) {
@@ -91,13 +99,13 @@ async function sendEmbeds(client, observations) {
   }
 }
 
-async function initializeCARBAJob(client) {
+async function initializeRBAJob(client, regionCode, filteredSpecies, channelIds) {
   function fetchRareCallback(error) {
     alertOnAPIFailure(client, error);
   }
 
   function onCronSuccess(data, messagesToSend) {
-	notifyOfCronJob(client, "CA Rare Bird Alert", [
+	notifyOfCronJob(client, `${regionCode} Rare Bird Alert`, [
 		{
 		  name: "Observations Found",
 		  value: `${data.size}`,
@@ -112,7 +120,7 @@ async function initializeCARBAJob(client) {
   }
 
   function onCronFailure(error) {
-	notifyOfCronJob(client, "CA Rare Bird Alert", [
+	notifyOfCronJob(client, `${regionCode} Rare Bird Alert`, [
 		{
 		  name: "Error",
 		  value: `Cron job failed. Check logs.`,
@@ -124,15 +132,15 @@ async function initializeCARBAJob(client) {
 
   try {
     let prevAlertData = await fetchRareObservations(
-      "US-CA",
+      regionCode,
       fetchRareCallback
     ).then((res) => getObservationSet(res));
-    const filter = parseFilter();
+    const filter = parseFilter(filteredSpecies);
     const job = new CronJob("0 */15 * * * *", async () => {
       try {
         console.log("Running CA Rare CRON.");
         const newObservations = await fetchRareObservations(
-          "US-CA",
+          regionCode,
           fetchRareCallback
         ).then((obs) => obs.reverse());
         const observationsToSend = generateEmbeds(
@@ -141,7 +149,7 @@ async function initializeCARBAJob(client) {
           newObservations
         );
         if (observationsToSend.length >= 1) {
-          sendEmbeds(client, observationsToSend);
+          sendEmbeds(client, observationsToSend, channelIds);
         }
         prevAlertData = getObservationSet(newObservations);
 		onCronSuccess(prevAlertData, observationsToSend);
@@ -157,4 +165,4 @@ async function initializeCARBAJob(client) {
   }
 }
 
-export default initializeCARBAJob;
+export default initializeRBAJob;

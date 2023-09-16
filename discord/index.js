@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, Events, Collection } from 'discord.js';
+import { Client, GatewayIntentBits, Events, Collection, ActivityType } from 'discord.js';
 import initializeCARBAJob from './cron/caRareBirdAlert.js';
 import commands from './command-map.js';
 import 'dotenv/config';
@@ -57,6 +57,7 @@ client.on('ready', async () => {
 	else {
 		client.destroy();
 	}
+	client.user.setActivity('for birds', { type: ActivityType.Watching });
 });
 
 // Log in to Discord with your client's token
