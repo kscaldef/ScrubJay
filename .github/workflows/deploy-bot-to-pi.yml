@@ -15,9 +15,10 @@ jobs:
         working-directory: discord
         run: |
           echo "${{ secrets.ENV_FILE }}" > .env
-      - name: Install dependencies
+      - name: Stop current instance, install, and restart
         working-directory: discord
-        run: npm install
-      - name: Run index.js
-        working-directory: discord
-        run: pm2 start index.js
+        run: |
+          # Stop the current instance (if running)
+          pm2 stop scrub-jay-discord || true
+          npm install
+          pm2 start index.js
