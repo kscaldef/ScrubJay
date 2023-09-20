@@ -45,6 +45,11 @@ function generateEmbed(observation) {
     .setDescription(description)
     .addFields(
       {
+        name: 'County',
+        value: observation.subnational2Name ? observation.subnational2Name : "None",
+        inline: false
+      },
+      {
         name: "Time Seen",
         value: observation.obsDt,
         inline: true,

@@ -15,7 +15,7 @@ const requestOptions = {
 export async function fetchRareObservations(regionCode, onError) {
 	console.log('Fetching from eBird');
 	try {
-		const data = await fetch(`https://api.ebird.org/v2/data/obs/${regionCode}/recent/notable?detail=simple&back=1`, requestOptions)
+		const data = await fetch(`https://api.ebird.org/v2/data/obs/${regionCode}/recent/notable?detail=full&back=1`, requestOptions)
 			.then(response => response.json())
 			.catch(error => console.log('error', error));
 		return data;
