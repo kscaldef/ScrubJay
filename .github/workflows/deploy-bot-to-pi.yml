@@ -21,4 +21,4 @@ jobs:
           # Stop the current instance (if running)
           pm2 stop scrub-jay-discord || true
           npm install
-          pm2 start index.js
+          pm2 start index.js --name scrub-jay-discord
