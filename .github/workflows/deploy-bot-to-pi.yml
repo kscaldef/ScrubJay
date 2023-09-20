@@ -11,6 +11,10 @@ jobs:
         uses: actions/setup-node@v2
         with: 
           node-version: "20.x"
+      - name: Create .env
+        working-directory: discord
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
       - name: Install dependencies
         working-directory: discord
         run: npm install
