@@ -92,6 +92,7 @@ async function sendEmbeds(client, observations, channels) {
     channel.send(generateGreeting());
     for (let i = 0; i < observations.length; i += 10) {
       const chunk = observations.slice(i, i + 10);
+      console.log(chunk)
       setTimeout(() => {
         channel.send({ embeds: chunk });
       }, 1000);

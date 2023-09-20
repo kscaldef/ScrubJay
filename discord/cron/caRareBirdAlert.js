@@ -5,9 +5,10 @@ import { EmbedBuilder } from "discord.js";
 import { alertOnAPIFailure } from "../monitoring/api.js";
 import { notifyOfCronJob } from "../monitoring/cron.js";
 
-const CHANNELS = ["1151958598264574002"];
+const CHANNELS = ["1151958598264574002", "1152421317300207637"];
+// dev server, prod server
 const MESSAGES = [
-  ":pirate_flag: Ahoy birders! The past hour brings more rare birds, here's your latest RBA. :pirate_flag:",
+  ":pirate_flag: Ahoy birders! We have rare birds sighted, here's your latest RBA. :pirate_flag:",
   ":rotating_light: ATTENTION BIRDERS! The ScrubJay RBA is here. :rotating_light:",
   ":alarm_clock: Wake up birders, new ScrubJay RBA just dropped. :alarm_clock:",
   ":airplane: The ScrubJay RBA is soaring in. Brace yourselves for the latest rarities. :airplane:",
@@ -59,6 +60,22 @@ function generateEmbed(observation) {
         inline: true,
       }
     );
+
+  console.log(      {
+    name: "Time Seen",
+    value: observation.obsDt,
+    inline: true,
+  },
+  {
+    name: "Confirmed?",
+    value: observation.obsReviewed && observation.obsValid ? "Yes" : "No",
+    inline: true,
+  },
+  {
+    name: "Private Location?",
+    value: observation.locationPrivate ? "Yes" : "No",
+    inline: true,
+  })
   return builder;
 }
 
@@ -79,6 +96,7 @@ function generateEmbeds(filter, prevAlertData, newObservations) {
 }
 
 async function sendEmbeds(client, observations) {
+  console.log("Sending embeds:", observations);
   for (const channelId of CHANNELS) {
     const channel = client.channels.cache.get(channelId);
     channel.send(generateGreeting());
