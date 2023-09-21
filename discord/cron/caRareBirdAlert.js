@@ -66,35 +66,37 @@ function generateEmbed(observation) {
       }
     );
 
-  console.log(      {
+  console.log({
     name: "Time Seen",
     value: observation.obsDt,
     inline: true,
   },
-  {
-    name: "Confirmed?",
-    value: observation.obsReviewed && observation.obsValid ? "Yes" : "No",
-    inline: true,
-  },
-  {
-    name: "Private Location?",
-    value: observation.locationPrivate ? "Yes" : "No",
-    inline: true,
-  })
+    {
+      name: "Confirmed?",
+      value: observation.obsReviewed && observation.obsValid ? "Yes" : "No",
+      inline: true,
+    },
+    {
+      name: "Private Location?",
+      value: observation.locationPrivate ? "Yes" : "No",
+      inline: true,
+    })
   return builder;
 }
 
 function generateEmbeds(filter, prevAlertData, newObservations) {
   const observationsToSend = [];
+  const observationsToSendIds = new Set();
   for (const observation of newObservations) {
     const filterContains = filter.has(observation.comName);
-    const prevAlertContains = prevAlertData.has(
-      `${observation.speciesCode}+${observation.subId}`
-    );
-    if (!prevAlertContains && !filterContains) {
+    const obsIdentifier = `${observation.speciesCode}+${observation.subId}`
+    const prevAlertContains = prevAlertData.has(obsIdentifier);
+    const alreadyAdded = observationsToSendIds.has(obsIdentifier)
+    if (!prevAlertContains && !filterContains && !alreadyAdded) {
       const embed = generateEmbed(observation);
-      console.log("Successfully generated embed for", observation.comName);
       observationsToSend.push(embed);
+      observationsToSendIds.add(obsIdentifier);
+      console.log("Successfully generated embed for", observation.comName);
     }
   }
   return observationsToSend;
@@ -120,29 +122,29 @@ async function initializeCARBAJob(client) {
   }
 
   function onCronSuccess(data, messagesToSend) {
-	notifyOfCronJob(client, "CA Rare Bird Alert", [
-		{
-		  name: "Observations Found",
-		  value: `${data.size}`,
-		  inline: true,
-		},
-		{
-		  name: "New Observations",
-		  value: `${messagesToSend.length}`,
-		  inline: true,
-		},
-	  ]);
+    notifyOfCronJob(client, "CA Rare Bird Alert", [
+      {
+        name: "Observations Found",
+        value: `${data.size}`,
+        inline: true,
+      },
+      {
+        name: "New Observations",
+        value: `${messagesToSend.length}`,
+        inline: true,
+      },
+    ]);
   }
 
   function onCronFailure(error) {
-	notifyOfCronJob(client, "CA Rare Bird Alert", [
-		{
-		  name: "Error",
-		  value: `Cron job failed. Check logs.`,
-		  inline: true,
-		},
-	  ], false);
-	  console.error(error);
+    notifyOfCronJob(client, "CA Rare Bird Alert", [
+      {
+        name: "Error",
+        value: `Cron job failed. Check logs.`,
+        inline: true,
+      },
+    ], false);
+    console.error(error);
   }
 
   try {
@@ -167,7 +169,7 @@ async function initializeCARBAJob(client) {
           sendEmbeds(client, observationsToSend);
         }
         prevAlertData = getObservationSet(newObservations);
-		onCronSuccess(prevAlertData, observationsToSend);
+        onCronSuccess(prevAlertData, observationsToSend);
       } catch (error) {
         onCronFailure(error);
       }
