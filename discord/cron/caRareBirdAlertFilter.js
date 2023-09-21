@@ -1524,6 +1524,9 @@ const filterData = [
 		"species": "Bell's Vireo"
 	},
 	{
+		"species": "Bell's Vireo (Least)"
+	},
+	{
 		"species": "Gray Vireo"
 	},
 	{
