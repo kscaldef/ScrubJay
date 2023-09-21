@@ -1,2320 +1,2473 @@
 const filterData = [
 	{
-		'species': 'Emu',
+		"species": "Emu"
 	},
 	{
-		'species': 'Snow Goose',
+		"species": "Bar-headed Goose"
 	},
 	{
-		'species': 'Ross\'s Goose',
+		"species": "Snow Goose"
 	},
 	{
-		'species': 'Snow x Ross\'s Goose (hybrid)',
+		"species": "Ross's Goose"
 	},
 	{
-		'species': 'Graylag Goose',
+		"species": "Snow x Ross's Goose (hybrid)"
 	},
 	{
-		'species': 'Swan Goose',
+		"species": "Graylag Goose"
 	},
 	{
-		'species': 'Graylag x Swan Goose (hybrid)',
+		"species": "Swan Goose"
 	},
 	{
-		'species': 'Greater White-fronted Goose',
+		"species": "Graylag x Swan Goose (hybrid)"
 	},
 	{
-		'species': 'Emperor x Greater White-fronted Goose (hybrid)',
+		"species": "Greater White-fronted Goose"
 	},
 	{
-		'species': 'Snow x Greater White-fronted Goose (hybrid)',
+		"species": "Emperor x Greater White-fronted Goose (hybrid)"
 	},
 	{
-		'species': 'Brant',
+		"species": "Snow x Greater White-fronted Goose (hybrid)"
 	},
 	{
-		'species': 'Cackling Goose',
+		"species": "Brant"
 	},
 	{
-		'species': 'Greater White-fronted x Cackling Goose (hybrid)',
+		"species": "Barnacle Goose"
 	},
 	{
-		'species': 'Canada Goose',
+		"species": "Cackling Goose"
 	},
 	{
-		'species': 'Swan Goose x Canada Goose (hybrid)',
+		"species": "Greater White-fronted x Cackling Goose (hybrid)"
 	},
 	{
-		'species': 'Greater White-fronted x Canada Goose (hybrid)',
+		"species": "Canada Goose"
 	},
 	{
-		'species': 'Graylag x Canada Goose (hybrid)',
+		"species": "Swan Goose x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Domestic goose sp. x Canada Goose (hybrid)',
+		"species": "Greater White-fronted x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Snow x Canada Goose (hybrid)',
+		"species": "Graylag x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Barnacle x Canada Goose (hybrid)',
+		"species": "Domestic goose sp. x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Hawaiian Goose',
+		"species": "Snow x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Red-breasted Goose',
+		"species": "Barnacle x Canada Goose (hybrid)"
 	},
 	{
-		'species': 'Mute Swan',
+		"species": "Hawaiian Goose"
 	},
 	{
-		'species': 'Black Swan',
+		"species": "Red-breasted Goose"
 	},
 	{
-		'species': 'Black-necked Swan',
+		"species": "Mute Swan"
 	},
 	{
-		'species': 'Tundra Swan',
+		"species": "Black Swan"
 	},
 	{
-		'species': 'Upland Goose',
+		"species": "Black-necked Swan"
 	},
 	{
-		'species': 'Egyptian Goose',
+		"species": "Trumpeter Swan"
 	},
 	{
-		'species': 'Ruddy Shelduck',
+		"species": "Tundra Swan"
 	},
 	{
-		'species': 'South African Shelduck',
+		"species": "Upland Goose"
 	},
 	{
-		'species': 'Common Shelduck',
+		"species": "Egyptian Goose"
 	},
 	{
-		'species': 'Crested Duck',
+		"species": "Ruddy Shelduck"
 	},
 	{
-		'species': 'Muscovy Duck',
+		"species": "South African Shelduck"
 	},
 	{
-		'species': 'Wood Duck',
+		"species": "Common Shelduck"
 	},
 	{
-		'species': 'Mandarin Duck',
+		"species": "Crested Duck"
 	},
 	{
-		'species': 'Blue-winged Teal',
+		"species": "Muscovy Duck"
 	},
 	{
-		'species': 'Cinnamon Teal',
+		"species": "Ringed Teal"
 	},
 	{
-		'species': 'Blue-winged x Cinnamon Teal (hybrid)',
+		"species": "Wood Duck"
 	},
 	{
-		'species': 'Northern Shoveler',
+		"species": "Mandarin Duck"
 	},
 	{
-		'species': 'Blue-winged Teal x Northern Shoveler (hybrid)',
+		"species": "Blue-winged Teal"
 	},
 	{
-		'species': 'Cinnamon Teal x Northern Shoveler (hybrid)',
+		"species": "Cinnamon Teal"
 	},
 	{
-		'species': 'Gadwall',
+		"species": "Blue-winged x Cinnamon Teal (hybrid)"
 	},
 	{
-		'species': 'Northern Shoveler x Gadwall (hybrid)',
+		"species": "Northern Shoveler"
 	},
 	{
-		'species': 'Eurasian Wigeon',
+		"species": "Blue-winged Teal x Northern Shoveler (hybrid)"
 	},
 	{
-		'species': 'American Wigeon',
+		"species": "Cinnamon Teal x Northern Shoveler (hybrid)"
 	},
 	{
-		'species': 'Northern Shoveler x American Wigeon (hybrid)',
+		"species": "Gadwall"
 	},
 	{
-		'species': 'Gadwall x American Wigeon (hybrid)',
+		"species": "Northern Shoveler x Gadwall (hybrid)"
 	},
 	{
-		'species': 'Eurasian x American Wigeon (hybrid)',
+		"species": "Eurasian Wigeon"
 	},
 	{
-		'species': 'Chiloe Wigeon',
+		"species": "American Wigeon"
 	},
 	{
-		'species': 'Mallard',
+		"species": "Northern Shoveler x American Wigeon (hybrid)"
 	},
 	{
-		'species': 'Muscovy Duck x Mallard (hybrid)',
+		"species": "Gadwall x American Wigeon (hybrid)"
 	},
 	{
-		'species': 'Wood Duck x Mallard (hybrid)',
+		"species": "Eurasian x American Wigeon (hybrid)"
 	},
 	{
-		'species': 'Northern Shoveler x Mallard (hybrid)',
+		"species": "Chiloe Wigeon"
 	},
 	{
-		'species': 'Gadwall x Mallard (hybrid)',
+		"species": "Mallard"
 	},
 	{
-		'species': 'American Wigeon x Mallard (hybrid)',
+		"species": "Muscovy Duck x Mallard (hybrid)"
 	},
 	{
-		'species': 'Mallard x Mexican Duck (hybrid)',
+		"species": "Wood Duck x Mallard (hybrid)"
 	},
 	{
-		'species': 'White-cheeked Pintail',
+		"species": "Northern Shoveler x Mallard (hybrid)"
 	},
 	{
-		'species': 'Northern Pintail',
+		"species": "Gadwall x Mallard (hybrid)"
 	},
 	{
-		'species': 'Gadwall x Northern Pintail (hybrid)',
+		"species": "American Wigeon x Mallard (hybrid)"
 	},
 	{
-		'species': 'American Wigeon x Northern Pintail (hybrid)',
+		"species": "Mallard x Mexican Duck (hybrid)"
 	},
 	{
-		'species': 'Mallard x Northern Pintail (hybrid)',
+		"species": "White-cheeked Pintail"
 	},
 	{
-		'species': 'Green-winged Teal',
+		"species": "Northern Pintail"
 	},
 	{
-		'species': 'Blue-winged x Green-winged Teal (hybrid)',
+		"species": "Gadwall x Northern Pintail (hybrid)"
 	},
 	{
-		'species': 'Cinnamon x Green-winged Teal (hybrid)',
+		"species": "American Wigeon x Northern Pintail (hybrid)"
 	},
 	{
-		'species': 'Gadwall x Green-winged Teal (hybrid)',
+		"species": "Mallard x Northern Pintail (hybrid)"
 	},
 	{
-		'species': 'Northern Pintail x Green-winged Teal (hybrid)',
+		"species": "Green-winged Teal"
 	},
 	{
-		'species': 'Red-crested Pochard',
+		"species": "Blue-winged x Green-winged Teal (hybrid)"
 	},
 	{
-		'species': 'Canvasback',
+		"species": "Cinnamon x Green-winged Teal (hybrid)"
 	},
 	{
-		'species': 'Redhead',
+		"species": "Gadwall x Green-winged Teal (hybrid)"
 	},
 	{
-		'species': 'Canvasback x Redhead (hybrid)',
+		"species": "Northern Pintail x Green-winged Teal (hybrid)"
 	},
 	{
-		'species': 'Common Pochard',
+		"species": "Red-crested Pochard"
 	},
 	{
-		'species': 'Ring-necked Duck',
+		"species": "Canvasback"
 	},
 	{
-		'species': 'Redhead x Ring-necked Duck (hybrid)',
+		"species": "Redhead"
 	},
 	{
-		'species': 'Ring-necked x Tufted Duck (hybrid)',
+		"species": "Canvasback x Redhead (hybrid)"
 	},
 	{
-		'species': 'Greater Scaup',
+		"species": "Ring-necked Duck"
 	},
 	{
-		'species': 'Ring-necked Duck x Greater Scaup (hybrid)',
+		"species": "Redhead x Ring-necked Duck (hybrid)"
 	},
 	{
-		'species': 'Tufted Duck x Greater Scaup (hybrid)',
+		"species": "Tufted Duck"
 	},
 	{
-		'species': 'Lesser Scaup',
+		"species": "Ring-necked x Tufted Duck (hybrid)"
 	},
 	{
-		'species': 'Ring-necked Duck x Lesser Scaup (hybrid)',
+		"species": "Greater Scaup"
 	},
 	{
-		'species': 'Tufted Duck x Lesser Scaup (hybrid)',
+		"species": "Ring-necked Duck x Greater Scaup (hybrid)"
 	},
 	{
-		'species': 'Ring-necked Duck x scaup sp. (hybrid)',
+		"species": "Tufted Duck x Greater Scaup (hybrid)"
 	},
 	{
-		'species': 'Tufted Duck x scaup sp. (hybrid)',
+		"species": "Lesser Scaup"
 	},
 	{
-		'species': 'Harlequin Duck',
+		"species": "Ring-necked Duck x Lesser Scaup (hybrid)"
 	},
 	{
-		'species': 'Surf Scoter',
+		"species": "Tufted Duck x Lesser Scaup (hybrid)"
 	},
 	{
-		'species': 'White-winged Scoter',
+		"species": "Ring-necked Duck x scaup sp. (hybrid)"
 	},
 	{
-		'species': 'Black Scoter',
+		"species": "Tufted Duck x scaup sp. (hybrid)"
 	},
 	{
-		'species': 'Long-tailed Duck',
+		"species": "Harlequin Duck"
 	},
 	{
-		'species': 'Bufflehead',
+		"species": "Surf Scoter"
 	},
 	{
-		'species': 'Common Goldeneye',
+		"species": "White-winged Scoter"
 	},
 	{
-		'species': 'Bufflehead x Common Goldeneye (hybrid)',
+		"species": "Stejneger's Scoter"
 	},
 	{
-		'species': 'Barrow\'s Goldeneye',
+		"species": "Black Scoter"
 	},
 	{
-		'species': 'Common x Barrow\'s Goldeneye (hybrid)',
+		"species": "Long-tailed Duck"
 	},
 	{
-		'species': 'Hooded Merganser',
+		"species": "Bufflehead"
 	},
 	{
-		'species': 'Bufflehead x Hooded Merganser (hybrid)',
+		"species": "Common Goldeneye"
 	},
 	{
-		'species': 'Common Goldeneye x Hooded Merganser (hybrid)',
+		"species": "Bufflehead x Common Goldeneye (hybrid)"
 	},
 	{
-		'species': 'Barrow\'s Goldeneye x Hooded Merganser (hybrid)',
+		"species": "Barrow's Goldeneye"
 	},
 	{
-		'species': 'goldeneye sp. x Hooded Merganser (hybrid)',
+		"species": "Common x Barrow's Goldeneye (hybrid)"
 	},
 	{
-		'species': 'Common Merganser',
+		"species": "Hooded Merganser"
 	},
 	{
-		'species': 'Red-breasted Merganser',
+		"species": "Bufflehead x Hooded Merganser (hybrid)"
 	},
 	{
-		'species': 'Ruddy Duck',
+		"species": "Common Goldeneye x Hooded Merganser (hybrid)"
 	},
 	{
-		'species': 'Helmeted Guineafowl',
+		"species": "Barrow's Goldeneye x Hooded Merganser (hybrid)"
 	},
 	{
-		'species': 'Mountain Quail',
+		"species": "goldeneye sp. x Hooded Merganser (hybrid)"
 	},
 	{
-		'species': 'Northern Bobwhite',
+		"species": "Common Merganser"
 	},
 	{
-		'species': 'Scaled Quail',
+		"species": "Red-breasted Merganser"
 	},
 	{
-		'species': 'California Quail',
+		"species": "Ruddy Duck"
 	},
 	{
-		'species': 'Gambel\'s Quail',
+		"species": "Helmeted Guineafowl"
 	},
 	{
-		'species': 'California x Gambel\'s Quail (hybrid)',
+		"species": "Mountain Quail"
 	},
 	{
-		'species': 'Wild Turkey',
+		"species": "Northern Bobwhite"
 	},
 	{
-		'species': 'Ruffed Grouse',
+		"species": "Scaled Quail"
 	},
 	{
-		'species': 'Greater Sage-Grouse',
+		"species": "California Quail"
 	},
 	{
-		'species': 'Sooty Grouse',
+		"species": "Gambel's Quail"
 	},
 	{
-		'species': 'Sharp-tailed Grouse',
+		"species": "California x Gambel's Quail (hybrid)"
 	},
 	{
-		'species': 'White-tailed Ptarmigan',
+		"species": "Wild Turkey"
 	},
 	{
-		'species': 'Gray Partridge',
+		"species": "Ruffed Grouse"
 	},
 	{
-		'species': 'Reeves\'s Pheasant',
+		"species": "Greater Sage-Grouse"
 	},
 	{
-		'species': 'Golden Pheasant',
+		"species": "Sooty Grouse"
 	},
 	{
-		'species': 'Lady Amherst\'s Pheasant',
+		"species": "Sharp-tailed Grouse"
 	},
 	{
-		'species': 'Golden x Lady Amherst\'s Pheasant (hybrid)',
+		"species": "White-tailed Ptarmigan"
 	},
 	{
-		'species': 'Ring-necked Pheasant',
+		"species": "Gray Partridge"
 	},
 	{
-		'species': 'Kalij Pheasant',
+		"species": "Reeves's Pheasant"
 	},
 	{
-		'species': 'Silver Pheasant',
+		"species": "Golden Pheasant"
 	},
 	{
-		'species': 'Indian Peafowl',
+		"species": "Lady Amherst's Pheasant"
 	},
 	{
-		'species': 'Gray Peacock-Pheasant',
+		"species": "Golden x Lady Amherst's Pheasant (hybrid)"
 	},
 	{
-		'species': 'Red Junglefowl',
+		"species": "Ring-necked Pheasant"
 	},
 	{
-		'species': 'Black Francolin',
+		"species": "Kalij Pheasant"
 	},
 	{
-		'species': 'Common Quail',
+		"species": "Silver Pheasant"
 	},
 	{
-		'species': 'Japanese Quail',
+		"species": "Indian Peafowl"
 	},
 	{
-		'species': 'Chukar',
+		"species": "Gray Peacock-Pheasant"
 	},
 	{
-		'species': 'Chilean Flamingo',
+		"species": "Red Junglefowl"
 	},
 	{
-		'species': 'American Flamingo',
+		"species": "Black Francolin"
 	},
 	{
-		'species': 'Greater Flamingo',
+		"species": "Common Quail"
 	},
 	{
-		'species': 'Lesser Flamingo',
+		"species": "Japanese Quail"
 	},
 	{
-		'species': 'Pied-billed Grebe',
+		"species": "Chukar"
 	},
 	{
-		'species': 'Horned Grebe',
+		"species": "Chilean Flamingo"
 	},
 	{
-		'species': 'Red-necked Grebe',
+		"species": "American Flamingo"
 	},
 	{
-		'species': 'Eared Grebe',
+		"species": "Greater Flamingo"
 	},
 	{
-		'species': 'Western Grebe',
+		"species": "Lesser Flamingo"
 	},
 	{
-		'species': 'Clark\'s Grebe',
+		"species": "Pied-billed Grebe"
 	},
 	{
-		'species': 'Western x Clark\'s Grebe (hybrid)',
+		"species": "Horned Grebe"
 	},
 	{
-		'species': 'Rock Pigeon',
+		"species": "Red-necked Grebe"
 	},
 	{
-		'species': 'Speckled Pigeon',
+		"species": "Eared Grebe"
 	},
 	{
-		'species': 'Band-tailed Pigeon',
+		"species": "Western Grebe"
 	},
 	{
-		'species': 'Eurasian Collared-Dove',
+		"species": "Clark's Grebe"
 	},
 	{
-		'species': 'African Collared-Dove',
+		"species": "Western x Clark's Grebe (hybrid)"
 	},
 	{
-		'species': 'Eurasian x African Collared-Dove (hybrid)',
+		"species": "Rock Pigeon"
 	},
 	{
-		'species': 'Spotted Dove',
+		"species": "Speckled Pigeon"
 	},
 	{
-		'species': 'Laughing Dove',
+		"species": "Band-tailed Pigeon"
 	},
 	{
-		'species': 'Namaqua Dove',
+		"species": "Eurasian Collared-Dove"
 	},
 	{
-		'species': 'Diamond Dove',
+		"species": "African Collared-Dove"
 	},
 	{
-		'species': 'Zebra Dove',
+		"species": "Eurasian x African Collared-Dove (hybrid)"
 	},
 	{
-		'species': 'Inca Dove',
+		"species": "Spotted Dove"
 	},
 	{
-		'species': 'Common Ground Dove',
+		"species": "Laughing Dove"
 	},
 	{
-		'species': 'White-winged Dove',
+		"species": "Namaqua Dove"
 	},
 	{
-		'species': 'Mourning Dove',
+		"species": "Diamond Dove"
 	},
 	{
-		'species': 'White-cheeked Turaco',
+		"species": "Zebra Dove"
 	},
 	{
-		'species': 'Greater Roadrunner',
+		"species": "Inca Dove"
 	},
 	{
-		'species': 'Lesser Nighthawk',
+		"species": "Common Ground Dove"
 	},
 	{
-		'species': 'Common Nighthawk',
+		"species": "Ruddy Ground Dove"
 	},
 	{
-		'species': 'Common Poorwill',
+		"species": "White-winged Dove"
 	},
 	{
-		'species': 'Black Swift',
+		"species": "Mourning Dove"
 	},
 	{
-		'species': 'White-collared Swift',
+		"species": "White-cheeked Turaco"
 	},
 	{
-		'species': 'Vaux\'s Swift',
+		"species": "Greater Roadrunner"
 	},
 	{
-		'species': 'White-throated Swift',
+		"species": "Yellow-billed Cuckoo"
 	},
 	{
-		'species': 'Black-chinned Hummingbird',
+		"species": "Lesser Nighthawk"
 	},
 	{
-		'species': 'Anna\'s Hummingbird',
+		"species": "Common Nighthawk"
 	},
 	{
-		'species': 'Black-chinned x Anna\'s Hummingbird (hybrid)',
+		"species": "Common Poorwill"
 	},
 	{
-		'species': 'Costa\'s Hummingbird',
+		"species": "Mexican Whip-poor-will"
 	},
 	{
-		'species': 'Black-chinned x Costa\'s Hummingbird (hybrid)',
+		"species": "Black Swift"
 	},
 	{
-		'species': 'Anna\'s x Costa\'s Hummingbird (hybrid)',
+		"species": "Chimney Swift"
 	},
 	{
-		'species': 'Calliope Hummingbird',
+		"species": "Vaux's Swift"
 	},
 	{
-		'species': 'Black-chinned x Calliope Hummingbird (hybrid)',
+		"species": "White-throated Swift"
 	},
 	{
-		'species': 'Anna\'s x Calliope Hummingbird (hybrid)',
+		"species": "Black-chinned Hummingbird"
 	},
 	{
-		'species': 'Rufous Hummingbird',
+		"species": "Anna's Hummingbird"
 	},
 	{
-		'species': 'Black-chinned x Rufous Hummingbird (hybrid)',
+		"species": "Black-chinned x Anna's Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Anna\'s x Rufous Hummingbird (hybrid)',
+		"species": "Costa's Hummingbird"
 	},
 	{
-		'species': 'Calliope x Rufous Hummingbird (hybrid)',
+		"species": "Black-chinned x Costa's Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Allen\'s Hummingbird',
+		"species": "Anna's x Costa's Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Anna\'s x Allen\'s Hummingbird (hybrid)',
+		"species": "Calliope Hummingbird"
 	},
 	{
-		'species': 'Rufous x Allen\'s Hummingbird (hybrid)',
+		"species": "Black-chinned x Calliope Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Anna\'s Hummingbird x Selasphorus sp. (hybrid)',
+		"species": "Anna's x Calliope Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Ridgway\'s Rail',
+		"species": "Rufous Hummingbird"
 	},
 	{
-		'species': 'Virginia Rail',
+		"species": "Black-chinned x Rufous Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Sora',
+		"species": "Anna's x Rufous Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Common Gallinule',
+		"species": "Calliope x Rufous Hummingbird (hybrid)"
 	},
 	{
-		'species': 'American Coot',
+		"species": "Allen's Hummingbird"
 	},
 	{
-		'species': 'Common Gallinule x American Coot (hybrid)',
+		"species": "Anna's x Allen's Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Black Rail',
+		"species": "Rufous x Allen's Hummingbird (hybrid)"
 	},
 	{
-		'species': 'Sandhill Crane',
+		"species": "Broad-tailed Hummingbird"
 	},
 	{
-		'species': 'Black-necked Stilt',
+		"species": "Anna's Hummingbird x Selasphorus sp. (hybrid)"
 	},
 	{
-		'species': 'American Avocet',
+		"species": "Broad-billed Hummingbird"
 	},
 	{
-		'species': 'American Oystercatcher',
+		"species": "Ridgway's Rail"
 	},
 	{
-		'species': 'Black Oystercatcher',
+		"species": "Virginia Rail"
 	},
 	{
-		'species': 'American x Black Oystercatcher (hybrid)',
+		"species": "Sora"
 	},
 	{
-		'species': 'Black-bellied Plover',
+		"species": "Common Gallinule"
 	},
 	{
-		'species': 'Pacific Golden-Plover',
+		"species": "American Coot"
 	},
 	{
-		'species': 'Snowy Plover',
+		"species": "Common Gallinule x American Coot (hybrid)"
 	},
 	{
-		'species': 'Semipalmated Plover',
+		"species": "Yellow Rail"
 	},
 	{
-		'species': 'Killdeer',
+		"species": "Black Rail"
 	},
 	{
-		'species': 'Whimbrel',
+		"species": "Gray Crowned-Crane"
 	},
 	{
-		'species': 'Long-billed Curlew',
+		"species": "Demoiselle Crane"
 	},
 	{
-		'species': 'Marbled Godwit',
+		"species": "Sandhill Crane"
 	},
 	{
-		'species': 'Ruddy Turnstone',
+		"species": "Black-necked Stilt"
 	},
 	{
-		'species': 'Black Turnstone',
+		"species": "American Avocet"
 	},
 	{
-		'species': 'Red Knot',
+		"species": "American Oystercatcher"
 	},
 	{
-		'species': 'Surfbird',
+		"species": "Black Oystercatcher"
 	},
 	{
-		'species': 'Great Knot x Surfbird (hybrid)',
+		"species": "American x Black Oystercatcher (hybrid)"
 	},
 	{
-		'species': 'Ruff',
+		"species": "Black-bellied Plover"
 	},
 	{
-		'species': 'Stilt Sandpiper',
+		"species": "American Golden-Plover"
 	},
 	{
-		'species': 'Sanderling',
+		"species": "Pacific Golden-Plover"
 	},
 	{
-		'species': 'Dunlin',
+		"species": "Spur-winged Lapwing"
 	},
 	{
-		'species': 'Baird\'s Sandpiper',
+		"species": "Snowy Plover"
 	},
 	{
-		'species': 'Least Sandpiper',
+		"species": "Semipalmated Plover"
 	},
 	{
-		'species': 'Pectoral Sandpiper',
+		"species": "Killdeer"
 	},
 	{
-		'species': 'Western Sandpiper',
+		"species": "Mountain Plover"
 	},
 	{
-		'species': 'Short-billed Dowitcher',
+		"species": "Upland Sandpiper"
 	},
 	{
-		'species': 'Long-billed Dowitcher',
+		"species": "Whimbrel"
 	},
 	{
-		'species': 'Wilson\'s Snipe',
+		"species": "Long-billed Curlew"
 	},
 	{
-		'species': 'Wilson\'s Phalarope',
+		"species": "Bar-tailed Godwit"
 	},
 	{
-		'species': 'Red-necked Phalarope',
+		"species": "Hudsonian Godwit"
 	},
 	{
-		'species': 'Red Phalarope',
+		"species": "Marbled Godwit"
 	},
 	{
-		'species': 'Spotted Sandpiper',
+		"species": "Ruddy Turnstone"
 	},
 	{
-		'species': 'Solitary Sandpiper',
+		"species": "Black Turnstone"
 	},
 	{
-		'species': 'Wandering Tattler',
+		"species": "Red Knot"
 	},
 	{
-		'species': 'Greater Yellowlegs',
+		"species": "Surfbird"
 	},
 	{
-		'species': 'Willet',
+		"species": "Great Knot x Surfbird (hybrid)"
 	},
 	{
-		'species': 'Lesser Yellowlegs',
+		"species": "Ruff"
 	},
 	{
-		'species': 'South Polar Skua',
+		"species": "Sharp-tailed Sandpiper"
 	},
 	{
-		'species': 'Pomarine Jaeger',
+		"species": "Stilt Sandpiper"
 	},
 	{
-		'species': 'Parasitic Jaeger',
+		"species": "Curlew Sandpiper"
 	},
 	{
-		'species': 'Long-tailed Jaeger',
+		"species": "Long-toed Stint"
 	},
 	{
-		'species': 'Common Murre',
+		"species": "Sanderling"
 	},
 	{
-		'species': 'Thick-billed Murre',
+		"species": "Dunlin"
 	},
 	{
-		'species': 'Pigeon Guillemot',
+		"species": "Rock Sandpiper"
 	},
 	{
-		'species': 'Long-billed Murrelet',
+		"species": "Baird's Sandpiper"
 	},
 	{
-		'species': 'Marbled Murrelet',
+		"species": "Least Sandpiper"
 	},
 	{
-		'species': 'Kittlitz\'s Murrelet',
+		"species": "Buff-breasted Sandpiper"
 	},
 	{
-		'species': 'Scripps\'s Murrelet',
+		"species": "Pectoral Sandpiper"
 	},
 	{
-		'species': 'Guadalupe Murrelet',
+		"species": "Semipalmated Sandpiper"
 	},
 	{
-		'species': 'Craveri\'s Murrelet',
+		"species": "Western Sandpiper"
 	},
 	{
-		'species': 'Ancient Murrelet',
+		"species": "Short-billed Dowitcher"
 	},
 	{
-		'species': 'Cassin\'s Auklet',
+		"species": "Long-billed Dowitcher"
 	},
 	{
-		'species': 'Parakeet Auklet',
+		"species": "Wilson's Snipe"
 	},
 	{
-		'species': 'Least Auklet',
+		"species": "Wilson's Phalarope"
 	},
 	{
-		'species': 'Crested Auklet',
+		"species": "Red-necked Phalarope"
 	},
 	{
-		'species': 'Rhinoceros Auklet',
+		"species": "Red Phalarope"
 	},
 	{
-		'species': 'Horned Puffin',
+		"species": "Spotted Sandpiper"
 	},
 	{
-		'species': 'Tufted Puffin',
+		"species": "Solitary Sandpiper"
 	},
 	{
-		'species': 'Sabine\'s Gull',
+		"species": "Wandering Tattler"
 	},
 	{
-		'species': 'Bonaparte\'s Gull',
+		"species": "Greater Yellowlegs"
 	},
 	{
-		'species': 'Franklin\'s Gull',
+		"species": "Willet"
 	},
 	{
-		'species': 'Heermann\'s Gull',
+		"species": "Lesser Yellowlegs"
 	},
 	{
-		'species': 'Short-billed Gull',
+		"species": "South Polar Skua"
 	},
 	{
-		'species': 'Ring-billed Gull',
+		"species": "Pomarine Jaeger"
 	},
 	{
-		'species': 'Western Gull',
+		"species": "Parasitic Jaeger"
 	},
 	{
-		'species': 'Yellow-footed Gull',
+		"species": "Long-tailed Jaeger"
 	},
 	{
-		'species': 'California Gull',
+		"species": "Common Murre"
 	},
 	{
-		'species': 'Herring Gull',
+		"species": "Pigeon Guillemot"
 	},
 	{
-		'species': 'Iceland Gull',
+		"species": "Marbled Murrelet"
 	},
 	{
-		'species': 'Glaucous-winged Gull',
+		"species": "Scripps's Murrelet"
 	},
 	{
-		'species': 'Western x Glaucous-winged Gull (hybrid)',
+		"species": "Guadalupe Murrelet"
 	},
 	{
-		'species': 'Herring x Glaucous-winged Gull (hybrid)',
+		"species": "Craveri's Murrelet"
 	},
 	{
-		'species': 'Slaty-backed x Glaucous-winged Gull (hybrid)',
+		"species": "Ancient Murrelet"
 	},
 	{
-		'species': 'Herring x Glaucous Gull (hybrid)',
+		"species": "Cassin's Auklet"
 	},
 	{
-		'species': 'Glaucous-winged x Glaucous Gull (hybrid)',
+		"species": "Parakeet Auklet"
 	},
 	{
-		'species': 'Least Tern',
+		"species": "Rhinoceros Auklet"
 	},
 	{
-		'species': 'Gull-billed Tern',
+		"species": "Horned Puffin"
 	},
 	{
-		'species': 'Caspian Tern',
+		"species": "Tufted Puffin"
 	},
 	{
-		'species': 'Black Tern',
+		"species": "Black-legged Kittiwake"
 	},
 	{
-		'species': 'Common Tern',
+		"species": "Sabine's Gull"
 	},
 	{
-		'species': 'Arctic Tern',
+		"species": "Bonaparte's Gull"
 	},
 	{
-		'species': 'Forster\'s Tern',
+		"species": "Little Gull"
 	},
 	{
-		'species': 'Royal Tern',
+		"species": "Laughing Gull"
 	},
 	{
-		'species': 'Elegant Tern',
+		"species": "Franklin's Gull"
 	},
 	{
-		'species': 'Sandwich x Elegant Tern (hybrid)',
+		"species": "Heermann's Gull"
 	},
 	{
-		'species': 'Black Skimmer',
+		"species": "Short-billed Gull"
 	},
 	{
-		'species': 'White-tailed Tropicbird',
+		"species": "Ring-billed Gull"
 	},
 	{
-		'species': 'Red-billed Tropicbird',
+		"species": "Western Gull"
 	},
 	{
-		'species': 'Red-tailed Tropicbird',
+		"species": "Yellow-footed Gull"
 	},
 	{
-		'species': 'Red-throated Loon',
+		"species": "California Gull"
 	},
 	{
-		'species': 'Pacific Loon',
+		"species": "Herring Gull"
 	},
 	{
-		'species': 'Common Loon',
+		"species": "Iceland Gull"
 	},
 	{
-		'species': 'White-capped Albatross',
+		"species": "Lesser Black-backed Gull"
 	},
 	{
-		'species': 'Salvin\'s Albatross',
+		"species": "Slaty-backed Gull"
 	},
 	{
-		'species': 'Chatham Albatross',
+		"species": "Glaucous-winged Gull"
 	},
 	{
-		'species': 'Light-mantled Albatross',
+		"species": "Western x Glaucous-winged Gull (hybrid)"
 	},
 	{
-		'species': 'Wandering Albatross',
+		"species": "Herring x Glaucous-winged Gull (hybrid)"
 	},
 	{
-		'species': 'Laysan Albatross',
+		"species": "Slaty-backed x Glaucous-winged Gull (hybrid)"
 	},
 	{
-		'species': 'Black-footed Albatross',
+		"species": "Glaucous Gull"
 	},
 	{
-		'species': 'Laysan x Black-footed Albatross (hybrid)',
+		"species": "Herring x Glaucous Gull (hybrid)"
 	},
 	{
-		'species': 'Short-tailed Albatross',
+		"species": "Glaucous-winged x Glaucous Gull (hybrid)"
 	},
 	{
-		'species': 'Wilson\'s Storm-Petrel',
+		"species": "Least Tern"
 	},
 	{
-		'species': 'Fork-tailed Storm-Petrel',
+		"species": "Gull-billed Tern"
 	},
 	{
-		'species': 'Ringed Storm-Petrel',
+		"species": "Caspian Tern"
 	},
 	{
-		'species': 'Leach\'s Storm-Petrel',
+		"species": "Black Tern"
 	},
 	{
-		'species': 'Townsend\'s Storm-Petrel',
+		"species": "Common Tern"
 	},
 	{
-		'species': 'Ashy Storm-Petrel',
+		"species": "Arctic Tern"
 	},
 	{
-		'species': 'Band-rumped Storm-Petrel',
+		"species": "Forster's Tern"
 	},
 	{
-		'species': 'Wedge-rumped Storm-Petrel',
+		"species": "Royal Tern"
 	},
 	{
-		'species': 'Black Storm-Petrel',
+		"species": "Elegant Tern"
 	},
 	{
-		'species': 'Tristram\'s Storm-Petrel',
+		"species": "Sandwich x Elegant Tern (hybrid)"
 	},
 	{
-		'species': 'Least Storm-Petrel',
+		"species": "Black Skimmer"
 	},
 	{
-		'species': 'Northern Fulmar',
+		"species": "Red-billed Tropicbird"
 	},
 	{
-		'species': 'Gray-faced Petrel',
+		"species": "Red-throated Loon"
 	},
 	{
-		'species': 'Kermadec Petrel',
+		"species": "Pacific Loon"
 	},
 	{
-		'species': 'Murphy\'s Petrel',
+		"species": "Common Loon"
 	},
 	{
-		'species': 'Mottled Petrel',
+		"species": "Yellow-billed Loon"
 	},
 	{
-		'species': 'Hawaiian Petrel',
+		"species": "Laysan Albatross"
 	},
 	{
-		'species': 'Cook\'s Petrel',
+		"species": "Black-footed Albatross"
 	},
 	{
-		'species': 'Stejneger\'s Petrel',
+		"species": "Laysan x Black-footed Albatross (hybrid)"
 	},
 	{
-		'species': 'Bulwer\'s Petrel',
+		"species": "Wilson's Storm-Petrel"
 	},
 	{
-		'species': 'Jouanin\'s Petrel',
+		"species": "Fork-tailed Storm-Petrel"
 	},
 	{
-		'species': 'White-chinned Petrel',
+		"species": "Leach's Storm-Petrel"
 	},
 	{
-		'species': 'Parkinson\'s Petrel',
+		"species": "Townsend's Storm-Petrel"
 	},
 	{
-		'species': 'Streaked Shearwater',
+		"species": "Ashy Storm-Petrel"
 	},
 	{
-		'species': 'Cory\'s Shearwater',
+		"species": "Black Storm-Petrel"
 	},
 	{
-		'species': 'Pink-footed Shearwater',
+		"species": "Tristram's Storm-Petrel"
 	},
 	{
-		'species': 'Flesh-footed Shearwater',
+		"species": "Least Storm-Petrel"
 	},
 	{
-		'species': 'Great Shearwater',
+		"species": "Northern Fulmar"
 	},
 	{
-		'species': 'Wedge-tailed Shearwater',
+		"species": "Murphy's Petrel"
 	},
 	{
-		'species': 'Buller\'s Shearwater',
+		"species": "Mottled Petrel"
 	},
 	{
-		'species': 'Sooty Shearwater',
+		"species": "Hawaiian Petrel"
 	},
 	{
-		'species': 'Short-tailed Shearwater',
+		"species": "Cook's Petrel"
 	},
 	{
-		'species': 'Manx Shearwater',
+		"species": "Pink-footed Shearwater"
 	},
 	{
-		'species': 'Newell\'s Shearwater',
+		"species": "Flesh-footed Shearwater"
 	},
 	{
-		'species': 'Black-vented Shearwater',
+		"species": "Buller's Shearwater"
 	},
 	{
-		'species': 'Masked Booby',
+		"species": "Sooty Shearwater"
 	},
 	{
-		'species': 'Nazca Booby',
+		"species": "Short-tailed Shearwater"
 	},
 	{
-		'species': 'Blue-footed Booby',
+		"species": "Manx Shearwater"
 	},
 	{
-		'species': 'Brown Booby',
+		"species": "Black-vented Shearwater"
 	},
 	{
-		'species': 'Blue-footed x Brown Booby (hybrid)',
+		"species": "Magnificent Frigatebird"
 	},
 	{
-		'species': 'Red-footed Booby',
+		"species": "Masked Booby"
 	},
 	{
-		'species': 'Northern Gannet',
+		"species": "Nazca Booby"
 	},
 	{
-		'species': 'African Darter',
+		"species": "Blue-footed Booby"
 	},
 	{
-		'species': 'Brandt\'s Cormorant',
+		"species": "Brown Booby"
 	},
 	{
-		'species': 'Pelagic Cormorant',
+		"species": "Blue-footed x Brown Booby (hybrid)"
 	},
 	{
-		'species': 'Double-crested Cormorant',
+		"species": "Red-footed Booby"
 	},
 	{
-		'species': 'Neotropic Cormorant',
+		"species": "African Darter"
 	},
 	{
-		'species': 'Double-crested x Neotropic Cormorant (hybrid)',
+		"species": "Brandt's Cormorant"
 	},
 	{
-		'species': 'American White Pelican',
+		"species": "Pelagic Cormorant"
 	},
 	{
-		'species': 'Brown Pelican',
+		"species": "Double-crested Cormorant"
 	},
 	{
-		'species': 'Pink-backed Pelican',
+		"species": "Neotropic Cormorant"
 	},
 	{
-		'species': 'American Bittern',
+		"species": "Double-crested x Neotropic Cormorant (hybrid)"
 	},
 	{
-		'species': 'Least Bittern',
+		"species": "American White Pelican"
 	},
 	{
-		'species': 'Great Blue Heron',
+		"species": "Brown Pelican"
 	},
 	{
-		'species': 'Great Egret',
+		"species": "Pink-backed Pelican"
 	},
 	{
-		'species': 'Snowy Egret',
+		"species": "American Bittern"
 	},
 	{
-		'species': 'Little Blue Heron',
+		"species": "Least Bittern"
 	},
 	{
-		'species': 'Snowy Egret x Little Blue Heron (hybrid)',
+		"species": "Great Blue Heron"
 	},
 	{
-		'species': 'Reddish Egret',
+		"species": "Great Egret"
 	},
 	{
-		'species': 'Cattle Egret',
+		"species": "Snowy Egret"
 	},
 	{
-		'species': 'Green Heron',
+		"species": "Little Blue Heron"
 	},
 	{
-		'species': 'Black-crowned Night-Heron',
+		"species": "Snowy Egret x Little Blue Heron (hybrid)"
 	},
 	{
-		'species': 'Yellow-crowned Night-Heron',
+		"species": "Tricolored Heron"
 	},
 	{
-		'species': 'Black-crowned x Yellow-crowned Night-Heron (hybrid)',
+		"species": "Reddish Egret"
 	},
 	{
-		'species': 'White-faced Ibis',
+		"species": "Cattle Egret"
 	},
 	{
-		'species': 'Glossy x White-faced Ibis (hybrid)',
+		"species": "Green Heron"
 	},
 	{
-		'species': 'African Sacred Ibis',
+		"species": "Black-crowned Night-Heron"
 	},
 	{
-		'species': 'California Condor',
+		"species": "Yellow-crowned Night-Heron"
 	},
 	{
-		'species': 'Turkey Vulture',
+		"species": "Black-crowned x Yellow-crowned Night-Heron (hybrid)"
 	},
 	{
-		'species': 'Osprey',
+		"species": "White-faced Ibis"
 	},
 	{
-		'species': 'White-tailed Kite',
+		"species": "Glossy x White-faced Ibis (hybrid)"
 	},
 	{
-		'species': 'Golden Eagle',
+		"species": "African Sacred Ibis"
 	},
 	{
-		'species': 'Northern Harrier',
+		"species": "Roseate Spoonbill"
 	},
 	{
-		'species': 'Sharp-shinned Hawk',
+		"species": "California Condor"
 	},
 	{
-		'species': 'Cooper\'s Hawk',
+		"species": "Turkey Vulture"
 	},
 	{
-		'species': 'Northern Goshawk',
+		"species": "Osprey"
 	},
 	{
-		'species': 'Bald Eagle',
+		"species": "White-tailed Kite"
 	},
 	{
-		'species': 'Savanna Hawk',
+		"species": "Golden Eagle"
 	},
 	{
-		'species': 'Harris\'s Hawk',
+		"species": "Northern Harrier"
 	},
 	{
-		'species': 'Red-shouldered Hawk',
+		"species": "Sharp-shinned Hawk"
 	},
 	{
-		'species': 'Common Black x Red-shouldered Hawk (hybrid)',
+		"species": "Cooper's Hawk"
 	},
 	{
-		'species': 'Swainson\'s Hawk',
+		"species": "Northern Goshawk"
 	},
 	{
-		'species': 'Zone-tailed Hawk',
+		"species": "Bald Eagle"
 	},
 	{
-		'species': 'Red-tailed Hawk',
+		"species": "Savanna Hawk"
 	},
 	{
-		'species': 'Rough-legged Hawk',
+		"species": "Harris's Hawk"
 	},
 	{
-		'species': 'Red-tailed x Rough-legged Hawk (hybrid)',
+		"species": "Red-shouldered Hawk"
 	},
 	{
-		'species': 'Ferruginous Hawk',
+		"species": "Common Black x Red-shouldered Hawk (hybrid)"
 	},
 	{
-		'species': 'Barn Owl',
+		"species": "Broad-winged Hawk"
 	},
 	{
-		'species': 'Flammulated Owl',
+		"species": "Swainson's Hawk"
 	},
 	{
-		'species': 'Western Screech-Owl',
+		"species": "Zone-tailed Hawk"
 	},
 	{
-		'species': 'Great Horned Owl',
+		"species": "Red-tailed Hawk"
 	},
 	{
-		'species': 'Northern Pygmy-Owl',
+		"species": "Rough-legged Hawk"
 	},
 	{
-		'species': 'Burrowing Owl',
+		"species": "Red-tailed x Rough-legged Hawk (hybrid)"
 	},
 	{
-		'species': 'Spotted Owl',
+		"species": "Ferruginous Hawk"
 	},
 	{
-		'species': 'Barred Owl',
+		"species": "Barn Owl"
 	},
 	{
-		'species': 'Spotted x Barred Owl (hybrid)',
+		"species": "Flammulated Owl"
 	},
 	{
-		'species': 'Great Gray Owl',
+		"species": "Western Screech-Owl"
 	},
 	{
-		'species': 'Long-eared Owl',
+		"species": "Great Horned Owl"
 	},
 	{
-		'species': 'Short-eared Owl',
+		"species": "Northern Pygmy-Owl"
 	},
 	{
-		'species': 'Northern Saw-whet Owl',
+		"species": "Burrowing Owl"
 	},
 	{
-		'species': 'Oriental Pied-Hornbill',
+		"species": "Spotted Owl"
 	},
 	{
-		'species': 'Belted Kingfisher',
+		"species": "Barred Owl"
 	},
 	{
-		'species': 'Lilac-breasted Roller',
+		"species": "Spotted x Barred Owl (hybrid)"
 	},
 	{
-		'species': 'Keel-billed Toucan',
+		"species": "Great Gray Owl"
 	},
 	{
-		'species': 'Williamson\'s Sapsucker',
+		"species": "Long-eared Owl"
 	},
 	{
-		'species': 'Yellow-bellied Sapsucker',
+		"species": "Short-eared Owl"
 	},
 	{
-		'species': 'Red-naped Sapsucker',
+		"species": "Northern Saw-whet Owl"
 	},
 	{
-		'species': 'Yellow-bellied x Red-naped Sapsucker (hybrid)',
+		"species": "Oriental Pied-Hornbill"
 	},
 	{
-		'species': 'Red-breasted Sapsucker',
+		"species": "Belted Kingfisher"
 	},
 	{
-		'species': 'Yellow-bellied x Red-breasted Sapsucker (hybrid)',
+		"species": "Lilac-breasted Roller"
 	},
 	{
-		'species': 'Red-naped x Red-breasted Sapsucker (hybrid)',
+		"species": "Keel-billed Toucan"
 	},
 	{
-		'species': 'Lewis\'s Woodpecker',
+		"species": "Williamson's Sapsucker"
 	},
 	{
-		'species': 'Acorn Woodpecker',
+		"species": "Yellow-bellied Sapsucker"
 	},
 	{
-		'species': 'Gila Woodpecker',
+		"species": "Red-naped Sapsucker"
 	},
 	{
-		'species': 'Black-backed Woodpecker',
+		"species": "Yellow-bellied x Red-naped Sapsucker (hybrid)"
 	},
 	{
-		'species': 'Downy Woodpecker',
+		"species": "Red-breasted Sapsucker"
 	},
 	{
-		'species': 'Nuttall\'s Woodpecker',
+		"species": "Yellow-bellied x Red-breasted Sapsucker (hybrid)"
 	},
 	{
-		'species': 'Downy x Nuttall\'s Woodpecker (hybrid)',
+		"species": "Red-naped x Red-breasted Sapsucker (hybrid)"
 	},
 	{
-		'species': 'Ladder-backed Woodpecker',
+		"species": "Lewis's Woodpecker"
 	},
 	{
-		'species': 'Nuttall\'s x Ladder-backed Woodpecker (hybrid)',
+		"species": "Acorn Woodpecker"
 	},
 	{
-		'species': 'Hairy Woodpecker',
+		"species": "Gila Woodpecker"
 	},
 	{
-		'species': 'Downy x Hairy Woodpecker (hybrid)',
+		"species": "Black-backed Woodpecker"
 	},
 	{
-		'species': 'Nuttall\'s x Hairy Woodpecker (hybrid)',
+		"species": "Downy Woodpecker"
 	},
 	{
-		'species': 'Ladder-backed x Hairy Woodpecker (hybrid)',
+		"species": "Nuttall's Woodpecker"
 	},
 	{
-		'species': 'White-headed Woodpecker',
+		"species": "Downy x Nuttall's Woodpecker (hybrid)"
 	},
 	{
-		'species': 'Pileated Woodpecker',
+		"species": "Ladder-backed Woodpecker"
 	},
 	{
-		'species': 'Northern Flicker',
+		"species": "Nuttall's x Ladder-backed Woodpecker (hybrid)"
 	},
 	{
-		'species': 'Northern x Gilded Flicker (hybrid)',
+		"species": "Hairy Woodpecker"
 	},
 	{
-		'species': 'American Kestrel',
+		"species": "Downy x Hairy Woodpecker (hybrid)"
 	},
 	{
-		'species': 'Merlin',
+		"species": "Nuttall's x Hairy Woodpecker (hybrid)"
 	},
 	{
-		'species': 'Peregrine Falcon',
+		"species": "Ladder-backed x Hairy Woodpecker (hybrid)"
 	},
 	{
-		'species': 'Prairie Falcon',
+		"species": "White-headed Woodpecker"
 	},
 	{
-		'species': 'Peregrine x Prairie Falcon (hybrid)',
+		"species": "Pileated Woodpecker"
 	},
 	{
-		'species': 'Sulphur-crested Cockatoo',
+		"species": "Northern Flicker"
 	},
 	{
-		'species': 'Cockatiel',
+		"species": "Gilded Flicker"
 	},
 	{
-		'species': 'Eclectus Parrot',
+		"species": "Northern x Gilded Flicker (hybrid)"
 	},
 	{
-		'species': 'Alexandrine Parakeet',
+		"species": "Yellow-headed Caracara"
 	},
 	{
-		'species': 'Rose-ringed Parakeet',
+		"species": "American Kestrel"
 	},
 	{
-		'species': 'Crimson Rosella',
+		"species": "Merlin"
 	},
 	{
-		'species': 'Red-rumped Parrot',
+		"species": "Peregrine Falcon"
 	},
 	{
-		'species': 'Budgerigar',
+		"species": "Prairie Falcon"
 	},
 	{
-		'species': 'Rainbow Lorikeet',
+		"species": "Peregrine x Prairie Falcon (hybrid)"
 	},
 	{
-		'species': 'Rosy-faced Lovebird',
+		"species": "Sulphur-crested Cockatoo"
 	},
 	{
-		'species': 'Fischer\'s Lovebird',
+		"species": "Cockatiel"
 	},
 	{
-		'species': 'Yellow-collared Lovebird',
+		"species": "Eclectus Parrot"
 	},
 	{
-		'species': 'Fischer\'s x Yellow-collared Lovebird (hybrid)',
+		"species": "Alexandrine Parakeet"
 	},
 	{
-		'species': 'Gray Parrot',
+		"species": "Rose-ringed Parakeet"
 	},
 	{
-		'species': 'Meyer\'s Parrot',
+		"species": "Crimson Rosella"
 	},
 	{
-		'species': 'Monk Parakeet',
+		"species": "Red-rumped Parrot"
 	},
 	{
-		'species': 'White-winged Parakeet',
+		"species": "Budgerigar"
 	},
 	{
-		'species': 'Yellow-chevroned Parakeet',
+		"species": "Rainbow Lorikeet"
 	},
 	{
-		'species': 'Scaly-headed Parrot',
+		"species": "Rosy-faced Lovebird"
 	},
 	{
-		'species': 'Red-crowned Parrot',
+		"species": "Fischer's Lovebird"
 	},
 	{
-		'species': 'Lilac-crowned Parrot',
+		"species": "Yellow-collared Lovebird"
 	},
 	{
-		'species': 'Red-crowned x Lilac-crowned Parrot (hybrid)',
+		"species": "Fischer's x Yellow-collared Lovebird (hybrid)"
 	},
 	{
-		'species': 'Red-lored Parrot',
+		"species": "Gray Parrot"
 	},
 	{
-		'species': 'Red-crowned x Red-lored Parrot (hybrid)',
+		"species": "Meyer's Parrot"
 	},
 	{
-		'species': 'Yellow-headed Parrot',
+		"species": "Monk Parakeet"
 	},
 	{
-		'species': 'Yellow-crowned Parrot',
+		"species": "White-winged Parakeet"
 	},
 	{
-		'species': 'Turquoise-fronted Parrot',
+		"species": "Yellow-chevroned Parakeet"
 	},
 	{
-		'species': 'White-fronted Parrot',
+		"species": "Scaly-headed Parrot"
 	},
 	{
-		'species': 'Mealy Parrot',
+		"species": "Red-crowned Parrot"
 	},
 	{
-		'species': 'Orange-winged Parrot',
+		"species": "Lilac-crowned Parrot"
 	},
 	{
-		'species': 'Pacific Parrotlet',
+		"species": "Red-crowned x Lilac-crowned Parrot (hybrid)"
 	},
 	{
-		'species': 'Yellow-faced Parrotlet',
+		"species": "Red-lored Parrot"
 	},
 	{
-		'species': 'Maroon-bellied Parakeet',
+		"species": "Red-crowned x Red-lored Parrot (hybrid)"
 	},
 	{
-		'species': 'Black-capped Parakeet',
+		"species": "Yellow-headed Parrot"
 	},
 	{
-		'species': 'Burrowing Parakeet',
+		"species": "Yellow-crowned Parrot"
 	},
 	{
-		'species': 'Hyacinth Macaw',
+		"species": "Turquoise-fronted Parrot"
 	},
 	{
-		'species': 'Orange-fronted Parakeet',
+		"species": "White-fronted Parrot"
 	},
 	{
-		'species': 'Nanday Parakeet',
+		"species": "Mealy Parrot"
 	},
 	{
-		'species': 'Sun Parakeet',
+		"species": "Orange-winged Parrot"
 	},
 	{
-		'species': 'Jandaya Parakeet',
+		"species": "Pacific Parrotlet"
 	},
 	{
-		'species': 'Blue-and-yellow Macaw',
+		"species": "Yellow-faced Parrotlet"
 	},
 	{
-		'species': 'Military Macaw',
+		"species": "Maroon-bellied Parakeet"
 	},
 	{
-		'species': 'Scarlet Macaw',
+		"species": "Black-capped Parakeet"
 	},
 	{
-		'species': 'Red-and-green Macaw',
+		"species": "Burrowing Parakeet"
 	},
 	{
-		'species': 'Blue-crowned Parakeet',
+		"species": "Hyacinth Macaw"
 	},
 	{
-		'species': 'Green Parakeet',
+		"species": "Orange-fronted Parakeet"
 	},
 	{
-		'species': 'Mitred Parakeet',
+		"species": "Nanday Parakeet"
 	},
 	{
-		'species': 'Red-masked Parakeet',
+		"species": "Sun Parakeet"
 	},
 	{
-		'species': 'White-eyed Parakeet',
+		"species": "Jandaya Parakeet"
 	},
 	{
-		'species': 'Olive-sided Flycatcher',
+		"species": "Blue-and-yellow Macaw"
 	},
 	{
-		'species': 'Western Wood-Pewee',
+		"species": "Military Macaw"
 	},
 	{
-		'species': 'Willow Flycatcher',
+		"species": "Scarlet Macaw"
 	},
 	{
-		'species': 'Hammond\'s Flycatcher',
+		"species": "Red-and-green Macaw"
 	},
 	{
-		'species': 'Gray Flycatcher',
+		"species": "Blue-crowned Parakeet"
 	},
 	{
-		'species': 'Dusky Flycatcher',
+		"species": "Green Parakeet"
 	},
 	{
-		'species': 'Pacific-slope Flycatcher',
+		"species": "Mitred Parakeet"
 	},
 	{
-		'species': 'Cordilleran Flycatcher',
+		"species": "Red-masked Parakeet"
 	},
 	{
-		'species': 'Black Phoebe',
+		"species": "White-eyed Parakeet"
 	},
 	{
-		'species': 'Eastern Phoebe',
+		"species": "Olive-sided Flycatcher"
 	},
 	{
-		'species': 'Say\'s Phoebe',
+		"species": "Western Wood-Pewee"
 	},
 	{
-		'species': 'Black x Say\'s Phoebe (hybrid)',
+		"species": "Willow Flycatcher"
 	},
 	{
-		'species': 'Vermilion Flycatcher',
+		"species": "Least Flycatcher"
 	},
 	{
-		'species': 'Ash-throated Flycatcher',
+		"species": "Hammond's Flycatcher"
 	},
 	{
-		'species': 'Brown-crested Flycatcher',
+		"species": "Gray Flycatcher"
 	},
 	{
-		'species': 'Tropical Kingbird',
+		"species": "Dusky Flycatcher"
 	},
 	{
-		'species': 'Cassin\'s Kingbird',
+		"species": "Pacific-slope Flycatcher"
 	},
 	{
-		'species': 'Western Kingbird',
+		"species": "Cordilleran Flycatcher"
 	},
 	{
-		'species': 'Eastern Kingbird',
+		"species": "Black Phoebe"
 	},
 	{
-		'species': 'Western Kingbird x Scissor-tailed Flycatcher (hybrid)',
+		"species": "Eastern Phoebe"
 	},
 	{
-		'species': 'Bell\'s Vireo',
+		"species": "Say's Phoebe"
 	},
 	{
-		'species': 'Bell\'s Vireo (Least)',
+		"species": "Black x Say's Phoebe (hybrid)"
 	},
 	{
-		'species': 'Gray Vireo',
+		"species": "Vermilion Flycatcher"
 	},
 	{
-		'species': 'Hutton\'s Vireo',
+		"species": "Dusky-capped Flycatcher"
 	},
 	{
-		'species': 'Cassin\'s Vireo',
+		"species": "Ash-throated Flycatcher"
 	},
 	{
-		'species': 'Plumbeous Vireo',
+		"species": "Great Crested Flycatcher"
 	},
 	{
-		'species': 'Warbling Vireo',
+		"species": "Brown-crested Flycatcher"
 	},
 	{
-		'species': 'Philadelphia x Red-eyed Vireo (hybrid)',
+		"species": "Sulphur-bellied Flycatcher"
 	},
 	{
-		'species': 'Loggerhead Shrike',
+		"species": "Tropical Kingbird"
 	},
 	{
-		'species': 'Northern Shrike',
+		"species": "Cassin's Kingbird"
 	},
 	{
-		'species': 'Canada Jay',
+		"species": "Western Kingbird"
 	},
 	{
-		'species': 'Black-throated Magpie-Jay',
+		"species": "Eastern Kingbird"
 	},
 	{
-		'species': 'White-throated Magpie-Jay',
+		"species": "Scissor-tailed Flycatcher"
 	},
 	{
-		'species': 'Green Jay',
+		"species": "Western Kingbird x Scissor-tailed Flycatcher (hybrid)"
 	},
 	{
-		'species': 'Pinyon Jay',
+		"species": "White-eyed Vireo"
 	},
 	{
-		'species': 'Steller\'s Jay',
+		"species": "Bell's Vireo"
 	},
 	{
-		'species': 'Island Scrub-Jay',
+		"species": "Gray Vireo"
 	},
 	{
-		'species': 'California Scrub-Jay',
+		"species": "Hutton's Vireo"
 	},
 	{
-		'species': 'Woodhouse\'s Scrub-Jay',
+		"species": "Yellow-throated Vireo"
 	},
 	{
-		'species': 'Eurasian Magpie',
+		"species": "Cassin's Vireo"
 	},
 	{
-		'species': 'Black-billed Magpie',
+		"species": "Blue-headed Vireo"
 	},
 	{
-		'species': 'Yellow-billed Magpie',
+		"species": "Plumbeous Vireo"
 	},
 	{
-		'species': 'Clark\'s Nutcracker',
+		"species": "Philadelphia Vireo"
 	},
 	{
-		'species': 'House Crow',
+		"species": "Warbling Vireo"
 	},
 	{
-		'species': 'American Crow',
+		"species": "Red-eyed Vireo"
 	},
 	{
-		'species': 'Pied Crow',
+		"species": "Philadelphia x Red-eyed Vireo (hybrid)"
 	},
 	{
-		'species': 'Common Raven',
+		"species": "Yellow-green Vireo"
 	},
 	{
-		'species': 'Black-capped Chickadee',
+		"species": "Loggerhead Shrike"
 	},
 	{
-		'species': 'Mountain Chickadee',
+		"species": "Northern Shrike"
 	},
 	{
-		'species': 'Chestnut-backed Chickadee',
+		"species": "Canada Jay"
 	},
 	{
-		'species': 'Eurasian Blue Tit',
+		"species": "Black-throated Magpie-Jay"
 	},
 	{
-		'species': 'Oak Titmouse',
+		"species": "White-throated Magpie-Jay"
 	},
 	{
-		'species': 'Juniper Titmouse',
+		"species": "Green Jay"
 	},
 	{
-		'species': 'Great Tit',
+		"species": "Pinyon Jay"
 	},
 	{
-		'species': 'Japanese Tit',
+		"species": "Steller's Jay"
 	},
 	{
-		'species': 'Verdin',
+		"species": "Island Scrub-Jay"
 	},
 	{
-		'species': 'Horned Lark',
+		"species": "California Scrub-Jay"
 	},
 	{
-		'species': 'Eurasian Skylark',
+		"species": "Woodhouse's Scrub-Jay"
 	},
 	{
-		'species': 'Northern Rough-winged Swallow',
+		"species": "Eurasian Magpie"
 	},
 	{
-		'species': 'Purple Martin',
+		"species": "Black-billed Magpie"
 	},
 	{
-		'species': 'Tree Swallow',
+		"species": "Yellow-billed Magpie"
 	},
 	{
-		'species': 'Violet-green Swallow',
+		"species": "Clark's Nutcracker"
 	},
 	{
-		'species': 'Bank Swallow',
+		"species": "House Crow"
 	},
 	{
-		'species': 'Barn Swallow',
+		"species": "American Crow"
 	},
 	{
-		'species': 'Tree x Barn Swallow (hybrid)',
+		"species": "Pied Crow"
 	},
 	{
-		'species': 'Cliff Swallow',
+		"species": "Common Raven"
 	},
 	{
-		'species': 'Barn x Cliff Swallow (hybrid)',
+		"species": "Black-capped Chickadee"
 	},
 	{
-		'species': 'Red-vented Bulbul',
+		"species": "Mountain Chickadee"
 	},
 	{
-		'species': 'Red-whiskered Bulbul',
+		"species": "Chestnut-backed Chickadee"
 	},
 	{
-		'species': 'Red-vented x Red-whiskered Bulbul (hybrid)',
+		"species": "Eurasian Blue Tit"
 	},
 	{
-		'species': 'White-eared Bulbul',
+		"species": "Oak Titmouse"
 	},
 	{
-		'species': 'Bushtit',
+		"species": "Juniper Titmouse"
 	},
 	{
-		'species': 'Wrentit',
+		"species": "Great Tit"
 	},
 	{
-		'species': 'Vinous-throated Parrotbill',
+		"species": "Japanese Tit"
 	},
 	{
-		'species': 'Swinhoe\'s White-eye',
+		"species": "Verdin"
 	},
 	{
-		'species': 'Indian White-eye',
+		"species": "Horned Lark"
 	},
 	{
-		'species': 'Red-billed Leiothrix',
+		"species": "Northern Rough-winged Swallow"
 	},
 	{
-		'species': 'Ruby-crowned Kinglet',
+		"species": "Purple Martin"
 	},
 	{
-		'species': 'Golden-crowned Kinglet',
+		"species": "Tree Swallow"
 	},
 	{
-		'species': 'Red-breasted Nuthatch',
+		"species": "Violet-green Swallow"
 	},
 	{
-		'species': 'White-breasted Nuthatch',
+		"species": "Bank Swallow"
 	},
 	{
-		'species': 'Pygmy Nuthatch',
+		"species": "Barn Swallow"
 	},
 	{
-		'species': 'Brown Creeper',
+		"species": "Tree x Barn Swallow (hybrid)"
 	},
 	{
-		'species': 'Blue-gray Gnatcatcher',
+		"species": "Cliff Swallow"
 	},
 	{
-		'species': 'Black-tailed Gnatcatcher',
+		"species": "Barn x Cliff Swallow (hybrid)"
 	},
 	{
-		'species': 'California Gnatcatcher',
+		"species": "Red-vented Bulbul"
 	},
 	{
-		'species': 'Rock Wren',
+		"species": "Red-whiskered Bulbul"
 	},
 	{
-		'species': 'Canyon Wren',
+		"species": "Red-vented x Red-whiskered Bulbul (hybrid)"
 	},
 	{
-		'species': 'House Wren',
+		"species": "White-eared Bulbul"
 	},
 	{
-		'species': 'Pacific Wren',
+		"species": "Wood Warbler"
 	},
 	{
-		'species': 'Marsh Wren',
+		"species": "Bushtit"
 	},
 	{
-		'species': 'Bewick\'s Wren',
+		"species": "Wrentit"
 	},
 	{
-		'species': 'Cactus Wren',
+		"species": "Vinous-throated Parrotbill"
 	},
 	{
-		'species': 'American Dipper',
+		"species": "Swinhoe's White-eye"
 	},
 	{
-		'species': 'Common Hill Myna',
+		"species": "Indian White-eye"
 	},
 	{
-		'species': 'European Starling',
+		"species": "Red-billed Leiothrix"
 	},
 	{
-		'species': 'Bali Myna',
+		"species": "Ruby-crowned Kinglet"
 	},
 	{
-		'species': 'Brahminy Starling',
+		"species": "Golden-crowned Kinglet"
 	},
 	{
-		'species': 'Common Myna',
+		"species": "Red-breasted Nuthatch"
 	},
 	{
-		'species': 'Crested Myna',
+		"species": "White-breasted Nuthatch"
 	},
 	{
-		'species': 'Purple Starling',
+		"species": "Pygmy Nuthatch"
 	},
 	{
-		'species': 'Curve-billed Thrasher',
+		"species": "Brown Creeper"
 	},
 	{
-		'species': 'Brown Thrasher',
+		"species": "Blue-gray Gnatcatcher"
 	},
 	{
-		'species': 'Bendire\'s Thrasher',
+		"species": "Black-tailed Gnatcatcher"
 	},
 	{
-		'species': 'California Thrasher',
+		"species": "California Gnatcatcher"
 	},
 	{
-		'species': 'LeConte\'s Thrasher',
+		"species": "Rock Wren"
 	},
 	{
-		'species': 'Crissal Thrasher',
+		"species": "Canyon Wren"
 	},
 	{
-		'species': 'California x Crissal Thrasher (hybrid)',
+		"species": "House Wren"
 	},
 	{
-		'species': 'Sage Thrasher',
+		"species": "Pacific Wren"
 	},
 	{
-		'species': 'Northern Mockingbird',
+		"species": "Marsh Wren"
 	},
 	{
-		'species': 'Western Bluebird',
+		"species": "Bewick's Wren"
 	},
 	{
-		'species': 'Mountain Bluebird',
+		"species": "Cactus Wren"
 	},
 	{
-		'species': 'Western x Mountain Bluebird (hybrid)',
+		"species": "American Dipper"
 	},
 	{
-		'species': 'Townsend\'s Solitaire',
+		"species": "Common Hill Myna"
 	},
 	{
-		'species': 'Varied Thrush',
+		"species": "European Starling"
 	},
 	{
-		'species': 'Swainson\'s Thrush',
+		"species": "Bali Myna"
 	},
 	{
-		'species': 'Hermit Thrush',
+		"species": "Brahminy Starling"
 	},
 	{
-		'species': 'American Robin',
+		"species": "Common Myna"
 	},
 	{
-		'species': 'Rufous-backed Robin',
+		"species": "Crested Myna"
 	},
 	{
-		'species': 'Cedar Waxwing',
+		"species": "Purple Starling"
 	},
 	{
-		'species': 'Phainopepla',
+		"species": "Blue Mockingbird"
 	},
 	{
-		'species': 'Golden-fronted Leafbird',
+		"species": "Gray Catbird"
 	},
 	{
-		'species': 'Golden Palm Weaver',
+		"species": "Brown Thrasher"
 	},
 	{
-		'species': 'Taveta Golden-Weaver',
+		"species": "Bendire's Thrasher"
 	},
 	{
-		'species': 'Southern Masked-Weaver',
+		"species": "Gray Thrasher"
 	},
 	{
-		'species': 'Village Weaver',
+		"species": "California Thrasher"
 	},
 	{
-		'species': 'Black-headed Weaver',
+		"species": "LeConte's Thrasher"
 	},
 	{
-		'species': 'Northern Red Bishop',
+		"species": "Crissal Thrasher"
 	},
 	{
-		'species': 'Zanzibar Red Bishop',
+		"species": "California x Crissal Thrasher (hybrid)"
 	},
 	{
-		'species': 'Black-winged Bishop',
+		"species": "Sage Thrasher"
 	},
 	{
-		'species': 'Yellow-crowned Bishop',
+		"species": "Northern Mockingbird"
 	},
 	{
-		'species': 'White-winged Widowbird',
+		"species": "Western Bluebird"
 	},
 	{
-		'species': 'Diamond Firetail',
+		"species": "Mountain Bluebird"
 	},
 	{
-		'species': 'Red-browed Firetail',
+		"species": "Western x Mountain Bluebird (hybrid)"
 	},
 	{
-		'species': 'Double-barred Finch',
+		"species": "Townsend's Solitaire"
 	},
 	{
-		'species': 'Zebra Finch',
+		"species": "Varied Thrush"
 	},
 	{
-		'species': 'Bronze Mannikin',
+		"species": "Swainson's Thrush"
 	},
 	{
-		'species': 'Indian Silverbill',
+		"species": "Hermit Thrush"
 	},
 	{
-		'species': 'Scaly-breasted Munia',
+		"species": "American Robin"
 	},
 	{
-		'species': 'White-rumped Munia',
+		"species": "Bohemian Waxwing"
 	},
 	{
-		'species': 'Tricolored Munia',
+		"species": "Cedar Waxwing"
 	},
 	{
-		'species': 'Chestnut Munia',
+		"species": "Gray Silky-flycatcher"
 	},
 	{
-		'species': 'White-headed Munia',
+		"species": "Phainopepla"
 	},
 	{
-		'species': 'Gouldian Finch',
+		"species": "Golden-fronted Leafbird"
 	},
 	{
-		'species': 'Orange-cheeked Waxbill',
+		"species": "Golden Palm Weaver"
 	},
 	{
-		'species': 'Common Waxbill',
+		"species": "Taveta Golden-Weaver"
 	},
 	{
-		'species': 'Black-rumped Waxbill',
+		"species": "Southern Masked-Weaver"
 	},
 	{
-		'species': 'Crimson-rumped Waxbill',
+		"species": "Village Weaver"
 	},
 	{
-		'species': 'Cut-throat',
+		"species": "Black-headed Weaver"
 	},
 	{
-		'species': 'Zebra Waxbill',
+		"species": "Northern Red Bishop"
 	},
 	{
-		'species': 'Red Avadavat',
+		"species": "Zanzibar Red Bishop"
 	},
 	{
-		'species': 'Red-cheeked Cordonbleu',
+		"species": "Black-winged Bishop"
 	},
 	{
-		'species': 'Blue-capped Cordonbleu',
+		"species": "Yellow-crowned Bishop"
 	},
 	{
-		'species': 'Green-winged Pytilia',
+		"species": "White-winged Widowbird"
 	},
 	{
-		'species': 'Peters\'s Twinspot',
+		"species": "Diamond Firetail"
 	},
 	{
-		'species': 'Red-billed Firefinch',
+		"species": "Red-browed Firetail"
 	},
 	{
-		'species': 'African Firefinch',
+		"species": "Double-barred Finch"
 	},
 	{
-		'species': 'Pin-tailed Whydah',
+		"species": "Zebra Finch"
 	},
 	{
-		'species': 'Togo Paradise-Whydah',
+		"species": "Bronze Mannikin"
 	},
 	{
-		'species': 'Broad-tailed Paradise-Whydah',
+		"species": "Indian Silverbill"
 	},
 	{
-		'species': 'Village Indigobird',
+		"species": "Scaly-breasted Munia"
 	},
 	{
-		'species': 'House Sparrow',
+		"species": "White-rumped Munia"
 	},
 	{
-		'species': 'Eurasian Tree Sparrow',
+		"species": "Tricolored Munia"
 	},
 	{
-		'species': 'Sudan Golden Sparrow',
+		"species": "Chestnut Munia"
 	},
 	{
-		'species': 'American Pipit',
+		"species": "White-headed Munia"
 	},
 	{
-		'species': 'Evening Grosbeak',
+		"species": "Gouldian Finch"
 	},
 	{
-		'species': 'Pine Grosbeak',
+		"species": "Orange-cheeked Waxbill"
 	},
 	{
-		'species': 'Gray-crowned Rosy-Finch',
+		"species": "Common Waxbill"
 	},
 	{
-		'species': 'Black Rosy-Finch',
+		"species": "Black-rumped Waxbill"
 	},
 	{
-		'species': 'House Finch',
+		"species": "Crimson-rumped Waxbill"
 	},
 	{
-		'species': 'Purple Finch',
+		"species": "Cut-throat"
 	},
 	{
-		'species': 'Cassin\'s Finch',
+		"species": "Zebra Waxbill"
 	},
 	{
-		'species': 'European Greenfinch',
+		"species": "Red Avadavat"
 	},
 	{
-		'species': 'Oriental Greenfinch',
+		"species": "Red-cheeked Cordonbleu"
 	},
 	{
-		'species': 'White-rumped Seedeater',
+		"species": "Blue-capped Cordonbleu"
 	},
 	{
-		'species': 'Yellow-fronted Canary',
+		"species": "Green-winged Pytilia"
 	},
 	{
-		'species': 'Black-throated Canary',
+		"species": "Peters's Twinspot"
 	},
 	{
-		'species': 'Streaky Seedeater',
+		"species": "Red-billed Firefinch"
 	},
 	{
-		'species': 'Red Crossbill',
+		"species": "African Firefinch"
 	},
 	{
-		'species': 'Red Crossbill (Sitka Spruce or type 10)',
+		"species": "Pin-tailed Whydah"
 	},
 	{
-		'species': 'Red Crossbill (Western Hemlock or type 3)',
+		"species": "Togo Paradise-Whydah"
 	},
 	{
-		'species': 'European Goldfinch',
+		"species": "Broad-tailed Paradise-Whydah"
 	},
 	{
-		'species': 'European Serin',
+		"species": "Village Indigobird"
 	},
 	{
-		'species': 'Island Canary',
+		"species": "House Sparrow"
 	},
 	{
-		'species': 'Pine Siskin',
+		"species": "Eurasian Tree Sparrow"
 	},
 	{
-		'species': 'Lesser Goldfinch',
+		"species": "Sudan Golden Sparrow"
 	},
 	{
-		'species': 'Lawrence\'s Goldfinch',
+		"species": "Red-throated Pipit"
 	},
 	{
-		'species': 'American Goldfinch',
+		"species": "American Pipit"
 	},
 	{
-		'species': 'Black Siskin',
+		"species": "Sprague's Pipit"
 	},
 	{
-		'species': 'Chestnut-collared Longspur',
+		"species": "Evening Grosbeak"
 	},
 	{
-		'species': 'Cassin\'s Sparrow',
+		"species": "Hawfinch"
 	},
 	{
-		'species': 'Grasshopper Sparrow',
+		"species": "Pine Grosbeak"
 	},
 	{
-		'species': 'Chipping Sparrow',
+		"species": "Gray-crowned Rosy-Finch"
 	},
 	{
-		'species': 'Clay-colored Sparrow',
+		"species": "House Finch"
 	},
 	{
-		'species': 'Black-chinned Sparrow',
+		"species": "Purple Finch"
 	},
 	{
-		'species': 'Brewer\'s Sparrow',
+		"species": "Cassin's Finch"
 	},
 	{
-		'species': 'Clay-colored x Brewer\'s Sparrow (hybrid)',
+		"species": "European Greenfinch"
 	},
 	{
-		'species': 'Black-throated Sparrow',
+		"species": "White-rumped Seedeater"
 	},
 	{
-		'species': 'Lark Sparrow',
+		"species": "Yellow-fronted Canary"
 	},
 	{
-		'species': 'Lark Bunting',
+		"species": "Black-throated Canary"
 	},
 	{
-		'species': 'American Tree Sparrow',
+		"species": "Streaky Seedeater"
 	},
 	{
-		'species': 'Fox Sparrow',
+		"species": "Common Redpoll"
 	},
 	{
-		'species': 'Dark-eyed Junco',
+		"species": "Red Crossbill"
 	},
 	{
-		'species': 'White-crowned Sparrow',
+		"species": "European Goldfinch"
 	},
 	{
-		'species': 'Dark-eyed Junco x White-crowned Sparrow (hybrid)',
+		"species": "European Serin"
 	},
 	{
-		'species': 'Golden-crowned Sparrow',
+		"species": "Island Canary"
 	},
 	{
-		'species': 'White-crowned x Golden-crowned Sparrow (hybrid)',
+		"species": "Pine Siskin"
 	},
 	{
-		'species': 'White-throated Sparrow',
+		"species": "Lesser Goldfinch"
 	},
 	{
-		'species': 'White-crowned x White-throated Sparrow (hybrid)',
+		"species": "Lawrence's Goldfinch"
 	},
 	{
-		'species': 'Golden-crowned x White-throated Sparrow (hybrid)',
+		"species": "American Goldfinch"
 	},
 	{
-		'species': 'Dark-eyed Junco x White-throated Sparrow (hybrid)',
+		"species": "Black Siskin"
 	},
 	{
-		'species': 'Sagebrush Sparrow',
+		"species": "Lapland Longspur"
 	},
 	{
-		'species': 'Bell\'s Sparrow',
+		"species": "Chestnut-collared Longspur"
 	},
 	{
-		'species': 'Vesper Sparrow',
+		"species": "Thick-billed Longspur"
 	},
 	{
-		'species': 'Savannah Sparrow',
+		"species": "Snow Bunting"
 	},
 	{
-		'species': 'Song Sparrow',
+		"species": "Grasshopper Sparrow"
 	},
 	{
-		'species': 'Lincoln\'s Sparrow',
+		"species": "Chipping Sparrow"
 	},
 	{
-		'species': 'Swamp Sparrow',
+		"species": "Clay-colored Sparrow"
 	},
 	{
-		'species': 'Abert\'s Towhee',
+		"species": "Black-chinned Sparrow"
 	},
 	{
-		'species': 'California Towhee',
+		"species": "Brewer's Sparrow"
 	},
 	{
-		'species': 'Rufous-crowned Sparrow',
+		"species": "Clay-colored x Brewer's Sparrow (hybrid)"
 	},
 	{
-		'species': 'Green-tailed Towhee',
+		"species": "Black-throated Sparrow"
 	},
 	{
-		'species': 'Spotted Towhee',
+		"species": "Lark Sparrow"
 	},
 	{
-		'species': 'Yellow-breasted Chat',
+		"species": "Lark Bunting"
 	},
 	{
-		'species': 'Yellow-headed Blackbird',
+		"species": "American Tree Sparrow"
 	},
 	{
-		'species': 'Western Meadowlark',
+		"species": "Fox Sparrow"
 	},
 	{
-		'species': 'Eastern Meadowlark',
+		"species": "Dark-eyed Junco"
 	},
 	{
-		'species': 'Crested Oropendola',
+		"species": "White-crowned Sparrow"
 	},
 	{
-		'species': 'Hooded Oriole',
+		"species": "Dark-eyed Junco x White-crowned Sparrow (hybrid)"
 	},
 	{
-		'species': 'Orchard Oriole',
+		"species": "Golden-crowned Sparrow"
 	},
 	{
-		'species': 'Epaulet Oriole',
+		"species": "White-crowned x Golden-crowned Sparrow (hybrid)"
 	},
 	{
-		'species': 'Venezuelan Troupial',
+		"species": "Harris's Sparrow"
 	},
 	{
-		'species': 'Streak-backed Oriole',
+		"species": "White-throated Sparrow"
 	},
 	{
-		'species': 'Bullock\'s Oriole',
+		"species": "White-crowned x White-throated Sparrow (hybrid)"
 	},
 	{
-		'species': 'Bullock\'s x Baltimore Oriole (hybrid)',
+		"species": "Golden-crowned x White-throated Sparrow (hybrid)"
 	},
 	{
-		'species': 'Scott\'s Oriole',
+		"species": "Dark-eyed Junco x White-throated Sparrow (hybrid)"
 	},
 	{
-		'species': 'Yellow-breasted Chat x new world oriole sp. (hybrid)',
+		"species": "Sagebrush Sparrow"
 	},
 	{
-		'species': 'Red-winged Blackbird',
+		"species": "Bell's Sparrow"
 	},
 	{
-		'species': 'Tricolored Blackbird',
+		"species": "Vesper Sparrow"
 	},
 	{
-		'species': 'Brown-headed Cowbird',
+		"species": "Nelson's Sparrow"
 	},
 	{
-		'species': 'Brewer\'s Blackbird',
+		"species": "Savannah Sparrow"
 	},
 	{
-		'species': 'Great-tailed Grackle',
+		"species": "Song Sparrow"
 	},
 	{
-		'species': 'Brewer\'s Blackbird x Great-tailed Grackle (hybrid)',
+		"species": "Lincoln's Sparrow"
 	},
 	{
-		'species': 'Golden-winged x Blue-winged Warbler (hybrid)',
+		"species": "Swamp Sparrow"
 	},
 	{
-		'species': 'Tennessee Warbler',
+		"species": "Abert's Towhee"
 	},
 	{
-		'species': 'Chestnut-sided Warbler',
+		"species": "California Towhee"
 	},
 	{
-		'species': 'Northern Waterthrush',
+		"species": "Rufous-crowned Sparrow"
 	},
 	{
-		'species': 'American Redstart',
+		"species": "Green-tailed Towhee"
 	},
 	{
-		'species': 'Northern Parula',
+		"species": "Spotted Towhee"
 	},
 	{
-		'species': 'Palm Warbler',
+		"species": "Yellow-breasted Chat"
 	},
 	{
-		'species': 'Lucy\'s Warbler',
+		"species": "Yellow-headed Blackbird"
 	},
 	{
-		'species': 'Blackpoll Warbler',
+		"species": "Bobolink"
 	},
 	{
-		'species': 'Orange-crowned Warbler',
+		"species": "Western Meadowlark"
 	},
 	{
-		'species': 'Orange-crowned Warbler (orestera)',
+		"species": "Crested Oropendola"
 	},
 	{
-		'species': 'Orange-crowned Warbler (Gray-headed)',
+		"species": "Orchard Oriole"
 	},
 	{
-		'species': 'Lucy\'s Warbler',
+		"species": "Hooded Oriole"
 	},
 	{
-		'species': 'Nashville Warbler',
+		"species": "Epaulet Oriole"
 	},
 	{
-		'species': 'MacGillivray\'s Warbler',
+		"species": "Venezuelan Troupial"
 	},
 	{
-		'species': 'Common Yellowthroat',
+		"species": "Bullock's Oriole"
 	},
 	{
-		'species': 'MacGillivray\'s Warbler x Common Yellowthroat (hybrid)',
+		"species": "Baltimore Oriole"
 	},
 	{
-		'species': 'Yellow Warbler',
+		"species": "Bullock's x Baltimore Oriole (hybrid)"
 	},
 	{
-		'species': 'Common Yellowthroat x Yellow Warbler (hybrid)',
+		"species": "Black-backed Oriole"
 	},
 	{
-		'species': 'American Redstart x Yellow Warbler (hybrid)',
+		"species": "Scott's Oriole"
 	},
 	{
-		'species': 'Yellow-rumped Warbler',
+		"species": "Yellow-breasted Chat x new world oriole sp. (hybrid)"
 	},
 	{
-		'species': 'Yellow-rumped Warbler (Audubon\'s)',
+		"species": "Red-winged Blackbird"
 	},
 	{
-		'species': 'Black-and-white Warbler',
+		"species": "Tricolored Blackbird"
 	},
 	{
-		'species': 'Cape May x Yellow-rumped Warbler (hybrid)',
+		"species": "Bronzed Cowbird"
 	},
 	{
-		'species': 'Yellow-rumped x Grace\'s Warbler (hybrid)',
+		"species": "Brown-headed Cowbird"
 	},
 	{
-		'species': 'Black-throated Gray Warbler',
+		"species": "Rusty Blackbird"
 	},
 	{
-		'species': 'Yellow-rumped x Black-throated Gray Warbler (hybrid)',
+		"species": "Brewer's Blackbird"
 	},
 	{
-		'species': 'Townsend\'s Warbler',
+		"species": "Common Grackle"
 	},
 	{
-		'species': 'Yellow-rumped x Townsend\'s Warbler (hybrid)',
+		"species": "Great-tailed Grackle"
 	},
 	{
-		'species': 'Black-throated Gray x Townsend\'s Warbler (hybrid)',
+		"species": "Brewer's Blackbird x Great-tailed Grackle (hybrid)"
 	},
 	{
-		'species': 'Hermit Warbler',
+		"species": "Ovenbird"
 	},
 	{
-		'species': 'Townsend\'s x Hermit Warbler (hybrid)',
+		"species": "Worm-eating Warbler"
 	},
 	{
-		'species': 'Black-throated Gray x Hermit Warbler (hybrid)',
+		"species": "Northern Waterthrush"
 	},
 	{
-		'species': 'Townsend\'s x Black-throated Green Warbler (hybrid)',
+		"species": "Golden-winged x Blue-winged Warbler (hybrid)"
 	},
 	{
-		'species': 'Wilson\'s Warbler',
+		"species": "Black-and-white Warbler"
 	},
 	{
-		'species': 'Summer Tanager',
+		"species": "Prothonotary Warbler"
 	},
 	{
-		'species': 'Western Tanager',
+		"species": "Tennessee Warbler"
 	},
 	{
-		'species': 'Northern Cardinal',
+		"species": "Orange-crowned Warbler"
 	},
 	{
-		'species': 'Black-headed Grosbeak',
+		"species": "Lucy's Warbler"
 	},
 	{
-		'species': 'Rose-breasted x Black-headed Grosbeak (hybrid)',
+		"species": "Nashville Warbler"
 	},
 	{
-		'species': 'Blue Grosbeak',
+		"species": "Virginia's Warbler"
 	},
 	{
-		'species': 'Rose-breasted Grosbeak',
+		"species": "Connecticut Warbler"
 	},
 	{
-		'species': 'Lazuli Bunting',
+		"species": "MacGillivray's Warbler"
 	},
 	{
-		'species': 'Indigo Bunting',
+		"species": "Mourning Warbler"
 	},
 	{
-		'species': 'Lazuli x Indigo Bunting (hybrid)',
+		"species": "Kentucky Warbler"
 	},
 	{
-		'species': 'Orange-breasted Bunting',
+		"species": "Common Yellowthroat"
 	},
 	{
-		'species': 'Red-crested Cardinal',
+		"species": "MacGillivray's Warbler x Common Yellowthroat (hybrid)"
 	},
 	{
-		'species': 'Yellow-billed Cardinal',
+		"species": "Hooded Warbler"
 	},
 	{
-		'species': 'White-lined Tanager',
+		"species": "American Redstart"
 	},
 	{
-		'species': 'Blue-gray Tanager',
+		"species": "Cape May Warbler"
 	},
 	{
-		'species': 'Blue Dacnis',
+		"species": "Northern Parula"
 	},
 	{
-		'species': 'Saffron Finch',
+		"species": "Magnolia Warbler"
 	},
 	{
-		'species': 'Grassland Yellow-Finch',
+		"species": "Bay-breasted Warbler"
 	},
 	{
-		'species': 'Blue-black Grassquit',
+		"species": "Blackburnian Warbler"
 	},
 	{
-		'species': 'Parrot-billed Seedeater',
+		"species": "Yellow Warbler"
 	},
 	{
-		'species': 'Cinnamon-rumped Seedeater',
+		"species": "Common Yellowthroat x Yellow Warbler (hybrid)"
 	},
 	{
-		'species': 'Yellow-faced Grassquit',
+		"species": "American Redstart x Yellow Warbler (hybrid)"
 	},
+	{
+		"species": "Chestnut-sided Warbler"
+	},
+	{
+		"species": "Blackpoll Warbler"
+	},
+	{
+		"species": "Black-throated Blue Warbler"
+	},
+	{
+		"species": "Palm Warbler"
+	},
+	{
+		"species": "Pine Warbler"
+	},
+	{
+		"species": "Yellow-rumped Warbler"
+	},
+	{
+		"species": "Cape May x Yellow-rumped Warbler (hybrid)"
+	},
+	{
+		"species": "Yellow-throated Warbler"
+	},
+	{
+		"species": "Prairie Warbler"
+	},
+	{
+		"species": "Grace's Warbler"
+	},
+	{
+		"species": "Yellow-rumped x Grace's Warbler (hybrid)"
+	},
+	{
+		"species": "Black-throated Gray Warbler"
+	},
+	{
+		"species": "Yellow-rumped x Black-throated Gray Warbler (hybrid)"
+	},
+	{
+		"species": "Townsend's Warbler"
+	},
+	{
+		"species": "Yellow-rumped x Townsend's Warbler (hybrid)"
+	},
+	{
+		"species": "Black-throated Gray x Townsend's Warbler (hybrid)"
+	},
+	{
+		"species": "Hermit Warbler"
+	},
+	{
+		"species": "Townsend's x Hermit Warbler (hybrid)"
+	},
+	{
+		"species": "Black-throated Gray x Hermit Warbler (hybrid)"
+	},
+	{
+		"species": "Black-throated Green Warbler"
+	},
+	{
+		"species": "Townsend's x Black-throated Green Warbler (hybrid)"
+	},
+	{
+		"species": "Canada Warbler"
+	},
+	{
+		"species": "Wilson's Warbler"
+	},
+	{
+		"species": "Painted Redstart"
+	},
+	{
+		"species": "Hepatic Tanager"
+	},
+	{
+		"species": "Summer Tanager"
+	},
+	{
+		"species": "Scarlet Tanager"
+	},
+	{
+		"species": "Western Tanager"
+	},
+	{
+		"species": "Northern Cardinal"
+	},
+	{
+		"species": "Yellow Grosbeak"
+	},
+	{
+		"species": "Rose-breasted Grosbeak"
+	},
+	{
+		"species": "Black-headed Grosbeak"
+	},
+	{
+		"species": "Rose-breasted x Black-headed Grosbeak (hybrid)"
+	},
+	{
+		"species": "Blue Grosbeak"
+	},
+	{
+		"species": "Lazuli Bunting"
+	},
+	{
+		"species": "Indigo Bunting"
+	},
+	{
+		"species": "Lazuli x Indigo Bunting (hybrid)"
+	},
+	{
+		"species": "Orange-breasted Bunting"
+	},
+	{
+		"species": "Painted Bunting"
+	},
+	{
+		"species": "Dickcissel"
+	},
+	{
+		"species": "Red-crested Cardinal"
+	},
+	{
+		"species": "Yellow-billed Cardinal"
+	},
+	{
+		"species": "White-lined Tanager"
+	},
+	{
+		"species": "Blue-gray Tanager"
+	},
+	{
+		"species": "Blue Dacnis"
+	},
+	{
+		"species": "Saffron Finch"
+	},
+	{
+		"species": "Grassland Yellow-Finch"
+	},
+	{
+		"species": "Blue-black Grassquit"
+	},
+	{
+		"species": "Parrot-billed Seedeater"
+	},
+	{
+		"species": "Cinnamon-rumped Seedeater"
+	},
+	{
+		"species": "Yellow-faced Grassquit"
+	}
 ];
 
 export default filterData;
