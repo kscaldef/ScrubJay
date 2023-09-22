@@ -153,7 +153,7 @@ async function initializeCARBAJob(client) {
       fetchRareCallback
     ).then((res) => getObservationSet(res));
     const filter = parseFilter();
-    const job = new CronJob("0 */15 * * * *", async () => {
+    const job = new CronJob("0 0 */1 * * *", async () => {
       try {
         console.log("Running CA Rare CRON.");
         const newObservations = await fetchRareObservations(
