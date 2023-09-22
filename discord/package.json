@@ -1,7 +1,7 @@
 {
   "name": "scrubjay-discord-bot",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A bot for the California Birding Discord server",
   "main": "dist/index.js",
   "scripts": {
