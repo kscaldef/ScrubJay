@@ -49,6 +49,7 @@ function groupObservationsBySpeciesAndLocation(observations) {
       const existingObservation = groupedObservations.get(key);
       existingObservation.obsCount += 1;
       existingObservation.evidence.push(observation.evidence);
+      observationsAdded.add(observationKey);
     } else if (!observationsAdded.has(observationKey)) {
       groupedObservations.set(key, {
         ...observation,
