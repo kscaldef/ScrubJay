@@ -59,7 +59,7 @@ function generateEmbed(observation) {
 
 export function generateEmbeds(filter, groupedObservations) {
   const observationsToSend = [];
-  groupedObservations.values().forEach((observation) => {
+  groupedObservations.forEach((observation) => {
     if (!filter.has(observation.comName)) {
       const embed = generateEmbed(observation);
       console.log('Successfully generated embed for', observation.comName);
@@ -79,14 +79,17 @@ export async function sendEmbeds(client, embeds, channels) {
   channels.forEach((channelId) => {
     try {
       const channel = client.channels.cache.get(channelId);
-      for (let i = 0; i < embeds.length; i += 10) {
-        const chunk = embeds.slice(i, i + 10);
+      for (let i = 0; i < embeds.length; i += 1) {
         setTimeout(() => {
-          channel.send({ embeds: chunk });
-        }, 1000);
+          try {
+            channel.send({ embeds: [embeds[i]] });
+          } catch (err) {
+            console.log('Likely missing permissions', err);
+          }
+        }, 500);
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   });
 }

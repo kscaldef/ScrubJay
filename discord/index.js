@@ -66,7 +66,9 @@ client.on('ready', async () => {
   } else {
     client.destroy();
   }
-  client.user.setActivity('for birds', { type: ActivityType.Watching });
+  client.user.setActivity(`for birds`, {
+    type: ActivityType.Watching,
+  });
 });
 
 // Log in to Discord with your client's token
