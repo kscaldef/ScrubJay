@@ -13,6 +13,7 @@ const californiaFilter = [
   { species: 'Brant' },
   { species: 'Barnacle Goose' },
   { species: 'Cackling Goose' },
+  { species: 'Cackling Goose (minima)' },
   { species: 'Greater White-fronted x Cackling Goose (hybrid)' },
   { species: 'Canada Goose' },
   { species: 'Swan Goose x Canada Goose (hybrid)' },

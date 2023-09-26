@@ -1,7 +1,7 @@
 # ScrubJay
 
 This repository contains the source code for the ScrubJay Discord bot. ScrubJay is a bot for the
-California Birding Discord server. It is written in JavaScript using the [discord.js](ht,tps://discord.js.org/#/),
+California Birding Discord server. It is written in JavaScript using the [discord.js](https://discord.js.org/#/),
 and hosted on a Raspberry Pi 4.
 
 ## Features
