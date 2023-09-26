@@ -83,7 +83,6 @@ function getNewObservations(prevAlertData, currentData) {
       newObservations.push(observation);
     }
   });
-  console.log({ newObservations });
   return newObservations;
 }
 
@@ -175,7 +174,6 @@ async function initializeRBAJob(
         const newObservations = getNewObservations(prevAlertData, newData);
         const groupedNewObservations =
           groupObservationsBySpeciesAndLocation(newObservations);
-        console.log({ groupedNewObservations });
 
         // If there are new observations, send them
         const embeds = generateEmbeds(filter, groupedNewObservations);
