@@ -178,19 +178,14 @@ async function initializeRBAJob(
         console.log({ groupedNewObservations });
 
         // If there are new observations, send them
-        if (groupedNewObservations.length >= 1) {
-          const embeds = generateEmbeds(filter, groupedNewObservations);
+        const embeds = generateEmbeds(filter, groupedNewObservations);
+        if (embeds.length >= 1) {
           sendEmbeds(client, embeds, channelIds);
         }
 
         // Update the previous data, indicate CRON success
         prevAlertData = getObservationSet(newData);
-        onCronSuccess(
-          client,
-          newData.length,
-          groupedNewObservations.length,
-          regionCode
-        );
+        onCronSuccess(client, newData.length, embeds.length, regionCode);
       } catch (error) {
         onCronFailure(client, regionCode, error);
       }
