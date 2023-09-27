@@ -63,17 +63,17 @@ function dispatchStatewideObservations(
 function dispatchObservationsToRegions(
   client,
   groupedNewObservations,
-  regionCode
+  regionCode,
+  regionalChannelIdsMap
 ) {
   const observationsByRegion = separateObservationsByRegion(
     groupedNewObservations,
     regionCode
   );
-  const channelIds = [''];
   Array.from(observationsByRegion.keys()).forEach((region) => {
     const regionEmbeds = generateEmbeds(observationsByRegion.get(region));
     if (regionEmbeds.length >= 1) {
-      sendEmbeds(client, regionEmbeds, channelIds);
+      sendEmbeds(client, regionEmbeds, regionalChannelIdsMap[region]);
     }
   });
 }

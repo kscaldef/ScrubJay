@@ -60,9 +60,8 @@ export function groupObservationsBySpeciesAndLocation(observations) {
 export function separateObservationsByRegion(groupedObservations, region) {
   const separatedObservations = new Map();
   groupedObservations.forEach((observation) => {
-    const key = rbaStateData[region].countyRegionMapping.get(
-      observation.subnational2Name
-    );
+    const key =
+      rbaStateData[region].countyRegionMapping[observation.subnational2Name];
     if (separatedObservations.has(key)) {
       separatedObservations.get(key).push(observation);
     } else {

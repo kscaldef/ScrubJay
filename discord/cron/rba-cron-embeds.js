@@ -57,7 +57,7 @@ function generateEmbed(observation) {
   return builder;
 }
 
-export function generateEmbeds(filter, groupedObservations) {
+export function generateEmbeds(groupedObservations) {
   const observationsToSend = [];
   groupedObservations.forEach((observation) => {
     const embed = generateEmbed(observation);
