@@ -58,8 +58,9 @@ client.on('ready', async () => {
   const CARBA = await initializeRBAJob(
     client,
     'US-CA',
-    rbaStateData.CA.filteredSpecies,
-    rbaStateData.CA.channelIds
+    rbaStateData['US-CA'].filteredSpecies,
+    rbaStateData['US-CA'].channelIds,
+    rbaStateData['US-CA'].regionChannelMapping
   );
   if (CARBA) {
     CARBA.start();

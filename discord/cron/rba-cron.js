@@ -10,60 +10,15 @@
 
 import { CronJob } from 'cron';
 import { fetchRareObservations, getObservationSet } from '../utils/ebird.js';
-import { generateEmbeds, sendEmbeds } from './rba-cron-embeds.js';
+import {
+  parseFilter,
+  groupObservationsBySpeciesAndLocation,
+  separateObservationsByRegion,
+  filterObservations,
+} from './rba-data-parsing-functions.js';
+import { sendEmbeds, generateEmbeds } from './rba-cron-embeds.js';
 import alertOnAPIFailure from '../monitoring/api.js';
 import notifyOfCronJob from '../monitoring/cron.js';
-
-/**
- * Parses filter data to get a set of species to filter by.
- * @param {Object[]} filterData - Array of filter data.
- * @returns {Set} filteredSpecies - Set of species to filter on.
- */
-function parseFilter(filterData) {
-  const filteredSpecies = new Set();
-  filterData.forEach((species) => {
-    filteredSpecies.add(species.species);
-  });
-  return filteredSpecies;
-}
-
-/**
- * Groups observations by species and location.
- * @param {Array} observations - Array of observations
- * @returns {Map} groupedObservations - Map of grouped observations
- */
-function groupObservationsBySpeciesAndLocation(observations) {
-  const groupedObservations = new Map();
-  const observationsAdded = new Set();
-  observations.forEach((observation) => {
-    const key = `${observation.speciesCode}+${observation.locId}`;
-    // This is needed to prevent duplicate observations from being added to the embeds.
-    // Duplicate observations can occur when an observation has multiple pieces of media.
-    const observationKey = `${observation.speciesCode}+${observation.subId}`;
-    /* Group by can take most of the same properties as the original observation,
-    but we need special handling for the count of observations and the evidence. */
-    if (
-      groupedObservations.has(key) &&
-      !observationsAdded.has(observationKey)
-    ) {
-      const existingObservation = groupedObservations.get(key);
-      existingObservation.obsCount += 1;
-      existingObservation.evidence.push(observation.evidence);
-      observationsAdded.add(observationKey);
-    } else if (!observationsAdded.has(observationKey)) {
-      groupedObservations.set(key, {
-        ...observation,
-        obsCount: 1,
-        evidence: [observation.evidence],
-      });
-      observationsAdded.add(observationKey);
-    } else {
-      const existingObservation = groupedObservations.get(key);
-      existingObservation.evidence.push(observation.evidence);
-    }
-  });
-  return Array.from(groupedObservations.values());
-}
 
 /**
  * Looks for new observations in the current data that were not in the previous data.
@@ -84,6 +39,43 @@ function getNewObservations(prevAlertData, currentData) {
     }
   });
   return newObservations;
+}
+
+function dispatchStatewideObservations(
+  client,
+  groupedNewObservations,
+  filteredSpecies,
+  channelIds
+) {
+  const statewideNotableObservations = filterObservations(
+    groupedNewObservations,
+    filteredSpecies
+  );
+  // If there are new observations, send them
+  const embeds = generateEmbeds(statewideNotableObservations);
+  if (embeds.length >= 1) {
+    sendEmbeds(client, embeds, channelIds);
+  }
+
+  return embeds.length;
+}
+
+function dispatchObservationsToRegions(
+  client,
+  groupedNewObservations,
+  regionCode
+) {
+  const observationsByRegion = separateObservationsByRegion(
+    groupedNewObservations,
+    regionCode
+  );
+  const channelIds = [''];
+  Array.from(observationsByRegion.keys()).forEach((region) => {
+    const regionEmbeds = generateEmbeds(observationsByRegion.get(region));
+    if (regionEmbeds.length >= 1) {
+      sendEmbeds(client, regionEmbeds, channelIds);
+    }
+  });
 }
 
 /**
@@ -143,7 +135,8 @@ async function initializeRBAJob(
   client,
   regionCode,
   filteredSpecies,
-  channelIds
+  statewideChannelIds,
+  regionalChannelIdsMap
 ) {
   // Callback function to be called on error, needs to be defined here to access client
   function fetchRareCallback(error) {
@@ -175,15 +168,22 @@ async function initializeRBAJob(
         const groupedNewObservations =
           groupObservationsBySpeciesAndLocation(newObservations);
 
-        // If there are new observations, send them
-        const embeds = generateEmbeds(filter, groupedNewObservations);
-        if (embeds.length >= 1) {
-          sendEmbeds(client, embeds, channelIds);
-        }
+        const messagesSent = dispatchStatewideObservations(
+          client,
+          groupedNewObservations,
+          filter,
+          statewideChannelIds
+        );
+        dispatchObservationsToRegions(
+          client,
+          groupedNewObservations,
+          regionCode,
+          regionalChannelIdsMap
+        );
 
         // Update the previous data, indicate CRON success
         prevAlertData = getObservationSet(newData);
-        onCronSuccess(client, newData.length, embeds.length, regionCode);
+        onCronSuccess(client, newData.length, messagesSent, regionCode);
       } catch (error) {
         onCronFailure(client, regionCode, error);
       }
