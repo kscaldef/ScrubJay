@@ -89,7 +89,6 @@ const californiaFilter = [
   { species: 'Harlequin Duck' },
   { species: 'Surf Scoter' },
   { species: 'White-winged Scoter' },
-  { species: "Stejneger's Scoter" },
   { species: 'Black Scoter' },
   { species: 'Long-tailed Duck' },
   { species: 'Bufflehead' },
