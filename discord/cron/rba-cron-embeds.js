@@ -34,7 +34,7 @@ function generateDescription(observation) {
   if (observation.howMany > 1) {
     description = `${observation.howMany} ${observation.comName} were`;
   }
-  description += ` seen at ${observation.locName}${
+  description += ` reported at ${observation.locName}${
     observation.locationPrivate ? '' : ' (Hotspot)'
   }${confirmedStatusIcon}x${observation.obsCount}`;
   description += `\n${observation.subnational2Name} County`;
