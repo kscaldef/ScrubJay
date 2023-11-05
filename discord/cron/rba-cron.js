@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * @fileoverview Contains function involved in the creation of a Rare Bird Alert CRON. The CRON
  * runs every 15 minutes and checks for new observations of rare species in a given region. If new
@@ -9,37 +10,18 @@
  */
 
 import { CronJob } from 'cron';
-import { fetchRareObservations, getObservationSet } from '../utils/ebird.js';
+import { fetchRareObservations } from '../utils/ebird/ebird.js';
 import {
   parseFilter,
-  groupObservationsBySpeciesAndLocation,
   separateObservationsByRegion,
   filterObservations,
-} from './rba-data-parsing-functions.js';
+} from '../utils/ebird/parse-observations.js';
 import { sendEmbeds, generateEmbeds } from './rba-cron-embeds.js';
 import alertOnAPIFailure from '../monitoring/api.js';
 import notifyOfCronJob from '../monitoring/cron.js';
-
-/**
- * Looks for new observations in the current data that were not in the previous data.
- *
- * @param {Set} prevAlertData - Set of unique identifiers for previous observations
- * @param {Object[]} currentData - List of current observations
- * @returns {Object[]} newObservations - List of new observations
- */
-function getNewObservations(prevAlertData, currentData) {
-  const newObservations = [];
-  currentData.forEach((observation) => {
-    // Check if the observation is in the previous data (constant time :D)
-    const contains = prevAlertData.has(
-      `${observation.speciesCode}+${observation.subId}`
-    );
-    if (!contains) {
-      newObservations.push(observation);
-    }
-  });
-  return newObservations;
-}
+import insertLocationsFromObservations from '../database/scripts/locations.js';
+import insertObservationsFromObservations from '../database/scripts/observations.js';
+import getNewNotableObservations from '../database/aggregation/get-sightings.js';
 
 function dispatchStatewideObservations(
   client,
@@ -56,18 +38,23 @@ function dispatchStatewideObservations(
   if (embeds.length >= 1) {
     sendEmbeds(client, embeds, channelIds);
   }
-
   return embeds.length;
 }
 
+/**
+ * @param {Client.<boolean>} client - Discord client
+ * @param {Array<import('../typedefs.js').RecentNotableObservation>} newObservations - Array of new observations
+ * @param {string} regionCode - the region of the CRON job, ex: US-CA
+ * @param {Object<string, Array<string>>} regionalChannelIdsMap - Map of region codes to channel IDs
+ */
 function dispatchObservationsToRegions(
   client,
-  groupedNewObservations,
+  newObservations,
   regionCode,
   regionalChannelIdsMap
 ) {
   const observationsByRegion = separateObservationsByRegion(
-    groupedNewObservations,
+    newObservations,
     regionCode
   );
   Array.from(observationsByRegion.keys()).forEach((region) => {
@@ -101,29 +88,6 @@ function onCronFailure(client, regionCode, error) {
 }
 
 /**
- * Sends an Embed to the specified monitoring channel indicating success.
- * @param {Client.<boolean>} client - Discord client
- * @param {number} newDataLength - length of the new data
- * @param {number} numberOfEmbeds - number of embeds created
- * @param {string} regionCode - the region of the CRON job, ex: US-CA
- */
-
-function onCronSuccess(client, newDataLength, numberOfEmbeds, regionCode) {
-  notifyOfCronJob(client, `${regionCode} Rare Bird Alert`, [
-    {
-      name: 'Observations Found',
-      value: `${newDataLength}`,
-      inline: true,
-    },
-    {
-      name: 'New Observations',
-      value: `${numberOfEmbeds}`,
-      inline: true,
-    },
-  ]);
-}
-
-/**
  * Initializes a cron job that fetches rare bird observations and sends alerts to specified Discord channels.
  * @param {Discord.Client} client - The Discord client object.
  * @param {string} regionCode - The region code for which to fetch rare bird observations.
@@ -134,6 +98,7 @@ function onCronSuccess(client, newDataLength, numberOfEmbeds, regionCode) {
 async function initializeRBAJob(
   client,
   regionCode,
+  dbClient,
   filteredSpecies,
   statewideChannelIds,
   regionalChannelIdsMap
@@ -143,16 +108,20 @@ async function initializeRBAJob(
     alertOnAPIFailure(client, error);
   }
 
+  const filter = parseFilter(filteredSpecies);
+
   try {
     // Steps to initialize the CRON job, in order:
     // 1. Fetch current data
     // 2. Parse the region's filter data
     // 3. Create a CRON job
-    let prevAlertData = await fetchRareObservations(
+
+    const initializationData = await fetchRareObservations(
       regionCode,
       fetchRareCallback
-    ).then((res) => getObservationSet(res));
-    const filter = parseFilter(filteredSpecies);
+    );
+    insertObservationsFromObservations(dbClient, initializationData, true);
+
     const job = new CronJob('0 */15 * * * *', async () => {
       try {
         console.log(`Running ${regionCode} Rare CRON.`);
@@ -161,29 +130,26 @@ async function initializeRBAJob(
         const newData = await fetchRareObservations(
           regionCode,
           fetchRareCallback
-        ).then((obs) => obs.reverse());
+        );
+        await insertLocationsFromObservations(dbClient, newData);
+        await insertObservationsFromObservations(dbClient, newData);
+        const observationsCreatedInLast15Minutes =
+          await getNewNotableObservations(dbClient);
+        console.log(observationsCreatedInLast15Minutes);
 
-        // Get new observations and group them
-        const newObservations = getNewObservations(prevAlertData, newData);
-        const groupedNewObservations =
-          groupObservationsBySpeciesAndLocation(newObservations);
-
-        const messagesSent = dispatchStatewideObservations(
+        dispatchStatewideObservations(
           client,
-          groupedNewObservations,
+          observationsCreatedInLast15Minutes,
           filter,
           statewideChannelIds
         );
+
         dispatchObservationsToRegions(
           client,
-          groupedNewObservations,
+          observationsCreatedInLast15Minutes,
           regionCode,
           regionalChannelIdsMap
         );
-
-        // Update the previous data, indicate CRON success
-        prevAlertData = getObservationSet(newData);
-        onCronSuccess(client, newData.length, messagesSent, regionCode);
       } catch (error) {
         onCronFailure(client, regionCode, error);
       }
