@@ -6,7 +6,7 @@
 function getAggregationPipeline() {
   const currentDateTime = new Date();
   const currentDateTimeMinus15Minutes = new Date(
-    currentDateTime - 60 * 14.5 * 1000
+    currentDateTime - 60 * 14 * 1000
   );
   console.log(currentDateTime, currentDateTimeMinus15Minutes);
   const dateTimeMinusOneWeek = new Date(
