@@ -1,13 +1,16 @@
+/* eslint-disable no-underscore-dangle */
+
 /**
  * Inserts and updates location-related information into the database provided an array of
  * observation data
  *
  * @param {import("mongodb").MongoClient} client
- * @param {*} observations
+ * @param {Array<import("../../typedefs").eBirdObservation>} observations
  */
 export default function insertLocationsFromObservations(client, observations) {
   const collection = client.db('ScrubJay').collection('Locations');
 
+  // Gets relevant location information from observations
   const locationInformation = observations.map((observation) => ({
     _id: observation.locId,
     county: observation.subnational2Name,
@@ -18,8 +21,18 @@ export default function insertLocationsFromObservations(client, observations) {
     isPrivate: observation.locationPrivate,
   }));
 
-  locationInformation.forEach((location) => {
-    // eslint-disable-next-line no-underscore-dangle
-    collection.updateOne({ _id: location._id }, location, { upsert: true });
-  });
+  // Creates a bulk operation for each location
+  const bulkOps = locationInformation.map((location) => ({
+    updateOne: {
+      filter: {
+        _id: location._id,
+      },
+      update: {
+        $set: location,
+      },
+      upsert: true,
+    },
+  }));
+
+  return collection.bulkWrite(bulkOps);
 }

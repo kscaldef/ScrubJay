@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * @fileoverview Contains function involved in the creation of a Rare Bird Alert CRON. The CRON
  * runs every 15 minutes and checks for new observations of rare species in a given region. If new
@@ -11,17 +12,19 @@
 import { CronJob } from 'cron';
 import {
   fetchRareObservations,
-  getObservationSet,
+  // getObservationSet,
 } from '../utils/ebird/ebird.js';
 import {
-  parseFilter,
-  groupObservationsBySpeciesAndLocation,
+  // parseFilter,
+  // groupObservationsBySpeciesAndLocation,
   separateObservationsByRegion,
   filterObservations,
 } from '../utils/ebird/parse-observations.js';
 import { sendEmbeds, generateEmbeds } from './rba-cron-embeds.js';
 import alertOnAPIFailure from '../monitoring/api.js';
 import notifyOfCronJob from '../monitoring/cron.js';
+import insertLocationsFromObservations from '../database/scripts/locations.js';
+import insertObservationsFromObservations from '../database/scripts/observations.js';
 
 /**
  * Looks for new observations in the current data that were not in the previous data.
@@ -137,9 +140,10 @@ function onCronSuccess(client, newDataLength, numberOfEmbeds, regionCode) {
 async function initializeRBAJob(
   client,
   regionCode,
-  filteredSpecies,
-  statewideChannelIds,
-  regionalChannelIdsMap
+  dbClient
+  // filteredSpecies,
+  // statewideChannelIds,
+  // regionalChannelIdsMap
 ) {
   // Callback function to be called on error, needs to be defined here to access client
   function fetchRareCallback(error) {
@@ -151,12 +155,14 @@ async function initializeRBAJob(
     // 1. Fetch current data
     // 2. Parse the region's filter data
     // 3. Create a CRON job
+    /*
     let prevAlertData = await fetchRareObservations(
       regionCode,
       fetchRareCallback
     ).then((res) => getObservationSet(res));
     const filter = parseFilter(filteredSpecies);
-    const job = new CronJob('0 */15 * * * *', async () => {
+    */
+    const job = new CronJob('0 */1 * * * *', async () => {
       try {
         console.log(`Running ${regionCode} Rare CRON.`);
 
@@ -166,27 +172,8 @@ async function initializeRBAJob(
           fetchRareCallback
         ).then((obs) => obs.reverse());
 
-        // Get new observations and group them
-        const newObservations = getNewObservations(prevAlertData, newData);
-        const groupedNewObservations =
-          groupObservationsBySpeciesAndLocation(newObservations);
-
-        const messagesSent = dispatchStatewideObservations(
-          client,
-          groupedNewObservations,
-          filter,
-          statewideChannelIds
-        );
-        dispatchObservationsToRegions(
-          client,
-          groupedNewObservations,
-          regionCode,
-          regionalChannelIdsMap
-        );
-
-        // Update the previous data, indicate CRON success
-        prevAlertData = getObservationSet(newData);
-        onCronSuccess(client, newData.length, messagesSent, regionCode);
+        insertLocationsFromObservations(dbClient, newData);
+        insertObservationsFromObservations(dbClient, newData);
       } catch (error) {
         onCronFailure(client, regionCode, error);
       }
