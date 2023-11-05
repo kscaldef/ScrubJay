@@ -122,7 +122,7 @@ async function initializeRBAJob(
     );
     insertObservationsFromObservations(dbClient, initializationData, true);
 
-    const job = new CronJob('0 */5 * * * *', async () => {
+    const job = new CronJob('0 */15 * * * *', async () => {
       try {
         console.log(`Running ${regionCode} Rare CRON.`);
 
