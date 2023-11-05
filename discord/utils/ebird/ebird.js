@@ -27,7 +27,7 @@ export async function fetchRareObservations(regionCode, onError) {
 
   try {
     const data = await fetch(
-      `https://api.ebird.org/v2/data/obs/${regionCode}/recent/notable?detail=full&back=1`,
+      `https://api.ebird.org/v2/data/obs/${regionCode}/recent/notable?detail=full&back=7`,
       requestOptions
     ).then((response) => response.json());
     return data;
