@@ -7,9 +7,10 @@ import { groupObservationsBySpeciesAndSubId } from '../../utils/ebird/parse-obse
  * @param {import('mongodb').MongoClient} client
  * @param {Array<import('../../typedefs').eBirdObservation>} observations
  */
-export default function insertObservationsFromObservations(
+export default async function insertObservationsFromObservations(
   client,
-  observations
+  observations,
+  init = false
 ) {
   const collection = client.db('ScrubJay').collection('Observations');
   const groupedObservations = groupObservationsBySpeciesAndSubId(observations);
@@ -42,7 +43,9 @@ export default function insertObservationsFromObservations(
         observations created in the last 15 minutes, even if the observation is from a previous
         day. */
         $setOnInsert: {
-          createdOn: new Date(),
+          // Sets the createdOn field to 30 minutes ago if init is true, otherwise sets it to now.
+          // This is to prevent the bot from sending notifications for old observations on startup.
+          createdOn: init ? new Date(new Date() - 60 * 30 * 1000) : new Date(),
         },
       },
       upsert: true,

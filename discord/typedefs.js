@@ -3,6 +3,10 @@
  */
 
 /**
+ * @namespace cronTypes
+ */
+
+/**
  * @typedef {Object} eBirdObservation
  * @property {string} speciesCode - The species code of the observation.
  * @property {string} comName - The common name of the species.
@@ -31,6 +35,28 @@
  * @property {string} lastName - The last name of the user who made the observation.
  * @property {boolean} hasRichMedia - Whether the observation has rich media.
  * @memberof eBirdTypes
+ */
+
+/**
+ * @typedef RecentNotableObservation
+ * @property {object} _id - The ID of the observation.
+ * @property {string} _id.comName - The common name of the species.
+ * @property {string} _id.locId - The location ID of the observation.
+ * @property {string} mostRecentTime - The most recent time of the observation (UTC).
+ * @property {Array<string>} newChecklists - The sub IDs of the new checklists containing the notable observation.
+ * @property {Array<number>} howMany - The number of individuals observed.
+ * @property {object} location - The location of the observation.
+ * @property {string} location._id - The ID of the location.
+ * @property {string} location.county - The county of the location.
+ * @property {boolean} location.isPrivate - Whether the location is private.
+ * @property {number} location.lat - The latitude of the location.
+ * @property {number} location.lng - The longitude of the location.
+ * @property {string} location.name - The name of the location.
+ * @property {string} location.state - The state of the location.
+ * @property {Array<string>} evidence - The evidence of the observation.
+ * @property {number} numNewObs - The number of new observations.
+ * @property {boolean} previousConfirmed - Whether the species has been previously confirmed at the location in the last week.
+ * @memberof cronTypes
  */
 
 export {};

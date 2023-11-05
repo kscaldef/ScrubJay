@@ -16,7 +16,6 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 console.log('Client created');
 
 const dbClient = await connectToCluster(process.env.DB_URI);
-console.log('Connected to database', dbClient);
 
 client.commands = new Collection();
 

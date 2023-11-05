@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /**
  * @fileoverview This file contains the functions that generate the embeds for the
  * rare bird alert functionality.
@@ -6,62 +7,70 @@
 import { EmbedBuilder } from 'discord.js';
 
 /**
- * @typedef {Object} GroupedObservation
- * @property {string} speciesCode - The species code of the observation
- * @property {string} comName - The common name of the observation
- * @property {string} locId - The location ID of the observation
- * @property {string} locName - The location name of the observation
- * @property {string} subId - The submission ID of the observation
- * @property {string} subnational2Name - The county name of the observation
- * @property {string} obsDt - The date of the observation
- * @property {number} howMany - The number of birds seen
- * @property {boolean} obsReviewed - Whether the observation was reviewed
- * @property {boolean} locationPrivate - Whether the location was private
- * @property {Array.<string>} evidence - The evidence of the observation
- */
-
-/**
- * Generates a description for a grouped observation.
- * @param {GroupedObservation} observation
+ * Generates a description for a RecentNotableObservation
+ * @param {import('../typedefs').RecentNotableObservation} observation
  * @returns
  */
 function generateDescription(observation) {
-  const aOrAn = observation.comName[0].match('^[aieouAIEOU].*') ? 'An' : 'A';
-  const confirmedStatusIcon = observation.obsReviewed
-    ? ':white_check_mark:'
-    : ':grey_question:';
-  let description = `${aOrAn} ${observation.comName} was`;
-  if (observation.howMany > 1) {
-    description = `${observation.howMany} ${observation.comName} were`;
+  const { comName, locId } = observation._id;
+  const { name } = observation.location;
+  const { numNewObs, previousConfirmed } = observation;
+  const aOrAn = comName[0].match('^[aieouAIEOU].*') ? 'An' : 'A';
+  let description = `${aOrAn} ${comName} was`;
+  if (Math.max(...observation.howMany) > 1) {
+    description = `${Math.max(...observation.howMany)} ${comName} were`;
   }
-  description += ` reported at ${observation.locName}${
-    observation.locationPrivate ? '' : ' (Hotspot)'
-  }${confirmedStatusIcon}x${observation.obsCount}`;
-  description += `\n${observation.subnational2Name} County`;
-  description += `\n${observation.obsDt}`;
+  if (observation.location.isPrivate) {
+    description += ` reported at a private location`;
+  } else {
+    description += ` reported at [${name}](https://ebird.org/hotspot/${locId})`;
+  }
+  description += `\n:eyes: - ${numNewObs} new report(s)`;
+  if (previousConfirmed) {
+    description += `\n:white_check_mark: - Confirmed at location in last week`;
+  } else {
+    description += `\n:question: - Not confirmed at location in last week`;
+  }
+  const photos = observation.evidence.filter((e) => e === 'P').length;
+  const audio = observation.evidence.filter((e) => e === 'A').length;
+
+  if (photos > 0 && audio > 0) {
+    description += `\n:camera: - ${photos} photo(s), ${audio} recording(s)`;
+  } else if (photos > 0) {
+    description += `\n:camera: - ${photos} photo(s)`;
+  } else if (audio > 0) {
+    description += `\n:microphone2: - ${audio} recording(s)`;
+  }
   return description;
 }
 
 /**
- * Generates an embed for a grouped observation.
- * @param {GroupedObservation} observation
+ * Generates an embed for a RecentNotableObservation.
+ * @param {import('../typedefs').RecentNotableObservation} observation - A RecentNotableObservation object, as defined in typedefs.js.
  * @returns
  */
 function generateEmbed(observation) {
+  const { comName } = observation._id;
+  const { county } = observation.location;
   const description = generateDescription(observation);
   const builder = new EmbedBuilder()
-    .setColor(0x3671aa)
-    .setTitle(observation.comName)
-    .setURL(`https://ebird.org/checklist/${observation.subId}`)
+    .setColor(observation.previousConfirmed ? 0x32cd32 : 0xffff00)
+    .setTitle(`${comName} - ${county}`)
+    .setAuthor({ name: 'ScrubJay RBA' })
+    .setURL(`https://ebird.org/checklist/${observation.newChecklists[0]}`)
     .setDescription(description);
   return builder;
 }
 
+/**
+ * Generates an array of embeds for a list of new observations.
+ * @param {Array.<import('../typedefs').RecentNotableObservation>} groupedObservations
+ */
 export function generateEmbeds(groupedObservations) {
   const observationsToSend = [];
   groupedObservations.forEach((observation) => {
     const embed = generateEmbed(observation);
-    console.log('Successfully generated embed for', observation.comName);
+    console.log('Successfully generated embed for', observation._id.comName);
     observationsToSend.push(embed);
   });
   return observationsToSend;

@@ -7,7 +7,10 @@
  * @param {import("mongodb").MongoClient} client
  * @param {Array<import("../../typedefs").eBirdObservation>} observations
  */
-export default function insertLocationsFromObservations(client, observations) {
+export default async function insertLocationsFromObservations(
+  client,
+  observations
+) {
   const collection = client.db('ScrubJay').collection('Locations');
 
   // Gets relevant location information from observations

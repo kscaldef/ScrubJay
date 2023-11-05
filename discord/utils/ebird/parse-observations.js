@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import rbaStateData from '../../cron/rba-cron-config.js';
 
 /**
@@ -13,55 +14,29 @@ export function parseFilter(filterData) {
   return filteredSpecies;
 }
 
+/**
+ * Filters out observations that are in the specified filter.
+ * @param {Array<import('../../typedefs.js').RecentNotableObservation>} observations - Array of observations
+ * @param {Set} filter - Set of species to filter on.
+ * @returns {Array<import('../../typedefs.js').RecentNotableObservation>} filteredObservations - Array of filtered observations
+ */
 export function filterObservations(observations, filter) {
-  return observations.filter((observation) => !filter.has(observation.comName));
+  return observations.filter(
+    (observation) => !filter.has(observation._id.comName)
+  );
 }
 
 /**
- * Groups observations by species and location.
- * @param {Array} observations - Array of observations
- * @returns {Map} groupedObservations - Map of grouped observations
+ *
+ * @param {Array<import('../../typedefs.js').RecentNotableObservation>} newObservations - Array of the new observations
+ * @param {string} region - Region code of the region to separate observations by. Ex: US-CA.
+ * @returns {Map<string, Array<import('../../typedefs.js').RecentNotableObservation>>}
  */
-export function groupObservationsBySpeciesAndLocation(observations) {
-  const groupedObservations = new Map();
-  const observationsAdded = new Set();
-  observations.forEach((observation) => {
-    const key = `${observation.speciesCode}+${observation.locId}`;
-
-    // This is needed to prevent duplicate observations from being added to the embeds.
-    // Duplicate observations can occur when an observation has multiple pieces of media.
-    const observationKey = `${observation.speciesCode}+${observation.subId}`;
-
-    /* Group by can take most of the same properties as the original observation,
-      but we need special handling for the count of observations and the evidence. */
-    if (
-      groupedObservations.has(key) &&
-      !observationsAdded.has(observationKey)
-    ) {
-      const existingObservation = groupedObservations.get(key);
-      existingObservation.obsCount += 1;
-      existingObservation.evidence.push(observation.evidence);
-      observationsAdded.add(observationKey);
-    } else if (!observationsAdded.has(observationKey)) {
-      groupedObservations.set(key, {
-        ...observation,
-        obsCount: 1,
-        evidence: [observation.evidence],
-      });
-      observationsAdded.add(observationKey);
-    } else {
-      const existingObservation = groupedObservations.get(key);
-      existingObservation.evidence.push(observation.evidence);
-    }
-  });
-  return Array.from(groupedObservations.values());
-}
-
-export function separateObservationsByRegion(groupedObservations, region) {
+export function separateObservationsByRegion(newObservations, region) {
   const separatedObservations = new Map();
-  groupedObservations.forEach((observation) => {
+  newObservations.forEach((observation) => {
     const key =
-      rbaStateData[region].countyRegionMapping[observation.subnational2Name];
+      rbaStateData[region].countyRegionMapping[observation.location.county];
     if (separatedObservations.has(key)) {
       separatedObservations.get(key).push(observation);
     } else {
