@@ -3,11 +3,27 @@
  * @param {import('mongodb').MongoClient} dbClient
  */
 export default function getSightings(dbClient) {
-  dbClient
+  return dbClient
     .db('ScrubJay')
     .getCollection('Observations')
     .aggregate(
       [
+        {
+          $match: {
+            obsDt: {
+              $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000),
+            },
+          },
+        },
+        {
+          $lookup: {
+            from: 'Locations',
+            localField: 'locId',
+            foreignField: '_id',
+            as: 'location',
+          },
+        },
+        { $unwind: { path: '$location' } },
         {
           $group: {
             _id: {
@@ -17,6 +33,7 @@ export default function getSightings(dbClient) {
             date: { $last: '$obsDt' },
             numObservations: { $count: {} },
             reviewStatus: { $push: '$obsValid' },
+            location: { $last: '$location' },
             evidence: {
               $push: {
                 $ifNull: [{ $first: '$evidence' }, '$noval'],
@@ -32,6 +49,7 @@ export default function getSightings(dbClient) {
                 format: '%Y-%m-%d %H:%M',
               },
             },
+            location: '$location',
             numObservations: '$numObservations',
             evidence: '$evidence',
             previousConfirmed: {
@@ -40,6 +58,6 @@ export default function getSightings(dbClient) {
           },
         },
       ],
-      { maxTimeMS: 60000 }
+      { maxTimeMS: 15000 }
     );
 }
