@@ -19,7 +19,6 @@ export default function insertObservationsFromObservations(
       comName: observation.comName,
       sciName: observation.sciName,
       locId: observation.locId,
-      locName: observation.locName,
       obsDt: new Date(observation.obsDt),
       howMany: observation.howMany,
       obsValid: observation.obsValid,
