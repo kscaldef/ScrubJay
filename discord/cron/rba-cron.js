@@ -9,13 +9,16 @@
  */
 
 import { CronJob } from 'cron';
-import { fetchRareObservations, getObservationSet } from '../utils/ebird.js';
+import {
+  fetchRareObservations,
+  getObservationSet,
+} from '../utils/ebird/ebird.js';
 import {
   parseFilter,
   groupObservationsBySpeciesAndLocation,
   separateObservationsByRegion,
   filterObservations,
-} from './rba-data-parsing-functions.js';
+} from '../utils/ebird/parse-observations.js';
 import { sendEmbeds, generateEmbeds } from './rba-cron-embeds.js';
 import alertOnAPIFailure from '../monitoring/api.js';
 import notifyOfCronJob from '../monitoring/cron.js';

@@ -1,4 +1,4 @@
-import rbaStateData from './rba-cron-config.js';
+import rbaStateData from '../../cron/rba-cron-config.js';
 
 /**
  * Parses filter data to get a set of species to filter by.
@@ -69,4 +69,28 @@ export function separateObservationsByRegion(groupedObservations, region) {
     }
   });
   return separatedObservations;
+}
+
+/**
+ * Groups observations by species and subId.
+ * @param {Array<import('../../typedefs.js').eBirdObservation>} observations - Array of observations
+ * @returns {Array<import('../../typedefs.js').eBirdObservation>} groupedObservations - Array of grouped observations
+ */
+export function groupObservationsBySpeciesAndSubId(observations) {
+  const observationsGroupedBySubId = new Map();
+  const observationsAdded = new Set();
+  observations.forEach((observation) => {
+    const key = `${observation.speciesCode}+${observation.subId}`;
+    if (!observationsAdded.has(key)) {
+      observationsGroupedBySubId.set(key, {
+        ...observation,
+        evidence: [observation.evidence],
+      });
+      observationsAdded.add(key);
+    } else {
+      const existingObservation = observationsGroupedBySubId.get(key);
+      existingObservation.evidence.push(observation.evidence);
+    }
+  });
+  return Array.from(observationsGroupedBySubId.values());
 }

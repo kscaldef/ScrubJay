@@ -9,11 +9,14 @@ import rbaStateData from './cron/rba-cron-config.js';
 import initializeRBAJob from './cron/rba-cron.js';
 import commands from './command-map.js';
 import 'dotenv/config';
+import connectToCluster from './database/connect.js';
 
-const token = process.env.DISCORD_TOKEN;
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 console.log('Client created');
+
+const dbClient = await connectToCluster(process.env.DB_URI);
+console.log('Connected to database', dbClient.isConnected());
 
 client.commands = new Collection();
 
@@ -55,18 +58,13 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
-  const CARBA = await initializeRBAJob(
+  initializeRBAJob(
     client,
     'US-CA',
     rbaStateData['US-CA'].filteredSpecies,
     rbaStateData['US-CA'].channelIds,
     rbaStateData['US-CA'].regionChannelMapping
-  );
-  if (CARBA) {
-    CARBA.start();
-  } else {
-    client.destroy();
-  }
+  ).then((CARBA) => (CARBA ? CARBA.start() : CARBA.destroy()));
   client.user.setActivity(`for birds`, {
     type: ActivityType.Watching,
   });
@@ -74,4 +72,5 @@ client.on('ready', async () => {
 
 // Log in to Discord with your client's token
 console.log('Attempting login...');
+const token = process.env.DISCORD_TOKEN;
 client.login(token);
