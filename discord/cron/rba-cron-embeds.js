@@ -25,7 +25,7 @@ function generateDescription(observation) {
   } else {
     description += ` reported at [${name}](https://ebird.org/hotspot/${locId})`;
   }
-  description += `:alarm_clock: latest report at ${observation.mostRecentTime}`;
+  description += `\n:alarm_clock: latest report at ${observation.mostRecentTime}`;
   description += `\n:eyes: - ${numNewObs} new report(s)`;
   if (previousConfirmed) {
     description += `\n:white_check_mark: - Confirmed at location in last week`;
