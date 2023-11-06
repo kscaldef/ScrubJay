@@ -49,6 +49,17 @@ function getAggregationPipeline() {
             ],
           },
         },
+        timesSeen: {
+          $push: {
+            $cond: [
+              {
+                $gte: ['$createdOn', currentDateTimeMinus15Minutes],
+              },
+              '$obsDt',
+              '$noval',
+            ],
+          },
+        },
         howMany: {
           $push: {
             $cond: [
@@ -90,7 +101,7 @@ function getAggregationPipeline() {
       $project: {
         mostRecentTime: {
           $dateToString: {
-            date: '$date',
+            date: { $max: '$timesSeen' },
             format: '%Y-%m-%d %H:%M',
           },
         },
