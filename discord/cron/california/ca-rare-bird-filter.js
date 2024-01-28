@@ -845,6 +845,7 @@ const californiaFilter = [
   { species: 'Bay-breasted Warbler' },
   { species: 'Blackburnian Warbler' },
   { species: 'Yellow Warbler' },
+  { species: 'Yellow Warbler (Northern)' },
   { species: 'Common Yellowthroat x Yellow Warbler (hybrid)' },
   { species: 'American Redstart x Yellow Warbler (hybrid)' },
   { species: 'Chestnut-sided Warbler' },
